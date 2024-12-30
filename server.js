@@ -1,6 +1,9 @@
 import app from './app';
 
-const port = 3001;
+require('dotenv').config();
+
+const port = process.env.HTTP_PORT;
+
 app.listen(port, () => {
   console.log();
   console.log(`Escutando na porta ${port}`);
