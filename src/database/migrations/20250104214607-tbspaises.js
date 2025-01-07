@@ -3,41 +3,36 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('users', {
+    await queryInterface.createTable('tbspaises', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      usertypeid: {
+      continenteid: {
         type: Sequelize.INTEGER,
-        defaultValue: 1,
+        allowNull: false,
         references: {
-          model: 'usertypes',
+          model: 'tbscontinentes',
           key: 'id',
         },
         onDelete: "CASCADE",
       },
-      name: {
-        type: Sequelize.STRING(50),
+      paiscod: {
+        type: Sequelize.STRING(4),
         allowNull: false,
       },
-      lastname: {
-        type: Sequelize.STRING(50),
+      paisname: {
+        type: Sequelize.STRING(150),
         allowNull: false,
       },
-      alias: {
-        type: Sequelize.STRING(50),
+      paispopname: {
+        type: Sequelize.STRING(150),
         allowNull: false,
       },
-      email: {
-        type: Sequelize.STRING(200),
-        allowNull: false,
-        unique: true,
-      },
-      password_hash: {
-        type: Sequelize.STRING,
+      paisddi: {
+        type: Sequelize.STRING(4),
         allowNull: false,
       },
       created_at: {
@@ -54,6 +49,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('tbspaises');
   }
 };

@@ -11,20 +11,18 @@ module.exports = {
         primaryKey: true,
       },
       typeuser: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      rightsuser: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(35),
         allowNull: false,
       },
       created_at: {
-        type: Sequelize.DATE,
         allowNull: false,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+        type: 'TIMESTAMP',
       },
       updated_at: {
-        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"),
         allowNull: false,
+        type: "TIMESTAMP",
       },
     });
   },

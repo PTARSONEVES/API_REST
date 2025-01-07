@@ -1,14 +1,13 @@
-import { password } from "../config/database";
-import User from "../models/User";
+import Tbscontinente from "../models/Tbscontinente";
 
-class UserController {
+class TbscontinenteController {
 
   // Método Index
 
   async index(req, res) {
     try {
-      const users = await User.findAll();
-      return res.json(users);
+      const continentes = await Tbscontinente.findAll();
+      return res.json(continentes);
     } catch (e) {
       return res.json(null);
     }
@@ -18,8 +17,8 @@ class UserController {
 
   async show(req, res) {
     try {
-      const user = await User.findByPk(req.params.id);
-      return res.json(user);
+      const continente = await Tbscontinente.findByPk(req.params.id);
+      return res.json(continente);
     } catch (e) {
       return res.json(null);
     }
@@ -30,8 +29,8 @@ class UserController {
 
   async store(req, res) {
     try {
-      const novoUser = await User.create(req.body);
-      res.json(novoUser);
+      const novocontinente = await Tbscontinente.create(req.body);
+      res.json(novocontinente);
     } catch (e) {
       res.status(400).json({
         errors: e.errors.map((err) => err.message),
@@ -49,15 +48,15 @@ class UserController {
         });
       }
 
-      const user = await User.findByPk(req.params.id);
+      const continente = await Tbscontinente.findByPk(req.params.id);
 
-      if (!user) {
+      if (!continente) {
         return res.status(400).json({
-          errors: ['Usuário não existe.'],
+          errors: ['Continente não existe.'],
         });
       }
 
-      const novosDados = await user.update(req.body);
+      const novosDados = await Tbscontinente.update(req.body);
 
       return res.json(novosDados);
 
@@ -78,15 +77,15 @@ class UserController {
         });
       }
 
-      const user = await User.findByPk(req.params.id);
+      const continente = await Tbscontinente.findByPk(req.params.id);
 
-      if (!user) {
+      if (!continente) {
         return res.status(400).json({
-          errors: ['Usuário não existe.'],
+          errors: ['Continente não existe.'],
         });
       }
 
-      await user.destroy();
+      await Tbscontinente.destroy();
 
       return res.json(user);
 
@@ -100,4 +99,4 @@ class UserController {
 
 }
 
-export default new UserController();
+export default new TbscontinenteController();

@@ -1,9 +1,14 @@
 import Sequelize, { Model } from 'sequelize';
 import bcryptjs from 'bcryptjs';
 
+
 export default class User extends Model {
   static init(sequelize) {
     super.init({
+      usertypeid: {
+        type: Sequelize.INTEGER,
+        defaultValue: 4,
+      },
       name: {
         type: Sequelize.STRING,
         defaultValue: '',
@@ -71,5 +76,9 @@ export default class User extends Model {
     });
 
     return this;
+  }
+
+  passwordIsValid(password) {
+    return bcryptjs.compare(password, this.password_hash);
   }
 }

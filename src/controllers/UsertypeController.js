@@ -1,14 +1,13 @@
-import { password } from "../config/database";
-import User from "../models/User";
+import Usertype from "../models/Usertype";
 
-class UserController {
+class UsertypeController {
 
   // Método Index
 
   async index(req, res) {
     try {
-      const users = await User.findAll();
-      return res.json(users);
+      const usertypes = await Usertype.findAll();
+      return res.json(usertypes);
     } catch (e) {
       return res.json(null);
     }
@@ -18,8 +17,8 @@ class UserController {
 
   async show(req, res) {
     try {
-      const user = await User.findByPk(req.params.id);
-      return res.json(user);
+      const usertype = await Usertype.findByPk(req.params.id);
+      return res.json(usertype);
     } catch (e) {
       return res.json(null);
     }
@@ -30,8 +29,8 @@ class UserController {
 
   async store(req, res) {
     try {
-      const novoUser = await User.create(req.body);
-      res.json(novoUser);
+      const novousertype = await Usertype.create(req.body);
+      res.json(novousertype);
     } catch (e) {
       res.status(400).json({
         errors: e.errors.map((err) => err.message),
@@ -49,15 +48,15 @@ class UserController {
         });
       }
 
-      const user = await User.findByPk(req.params.id);
+      const usertype = await Usertype.findByPk(req.params.id);
 
-      if (!user) {
+      if (!usertype) {
         return res.status(400).json({
-          errors: ['Usuário não existe.'],
+          errors: ['Tipo de usuário não existe.'],
         });
       }
 
-      const novosDados = await user.update(req.body);
+      const novosDados = await Usertype.update(req.body);
 
       return res.json(novosDados);
 
@@ -78,15 +77,15 @@ class UserController {
         });
       }
 
-      const user = await User.findByPk(req.params.id);
+      const usertype = await Usertype.findByPk(req.params.id);
 
-      if (!user) {
+      if (!usertype) {
         return res.status(400).json({
-          errors: ['Usuário não existe.'],
+          errors: ['Tipo de usuário não existe.'],
         });
       }
 
-      await user.destroy();
+      await usertype.destroy();
 
       return res.json(user);
 
@@ -100,4 +99,4 @@ class UserController {
 
 }
 
-export default new UserController();
+export default new UsertypeController();
