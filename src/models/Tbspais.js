@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class continente extends Model {
+export default class Tbspais extends Model {
   static init(sequelize) {
     super.init({
       continenteid: {
