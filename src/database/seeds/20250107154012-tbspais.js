@@ -7,7 +7,7 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     for(let i = 0; i < 30; i++){
       await queryInterface.bulkInsert(
-        "tbspaises", [
+        "tbspais", [
           {
             continenteid: Math.ceil(Math.random()*8),
             paiscod: faker.location.countryCode(),
@@ -20,6 +20,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('tbspaises', null, {});
+    await queryInterface.bulkDelete('tbspais', null, {});
   }
 };

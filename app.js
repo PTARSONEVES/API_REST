@@ -30,7 +30,7 @@ class App {
     this.app.use('/users/', userRoutes);
     this.app.use('/tokens/', tokenRoutes);
     this.app.use('/usertypes/', usertypeRoutes);
-    this.app.use('/continetes/', tbscontineteRoutes);
+    this.app.use('/continentes/', tbscontineteRoutes);
     this.app.use('/paises/', tbspaisRoutes);
   }
 }

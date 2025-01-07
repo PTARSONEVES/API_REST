@@ -49,6 +49,8 @@ export default class Tbspais extends Model {
       },
     }, {
       sequelize,
+      modelName: "tbspais",
+//      freezeTableName: true,
     });
   }
 }
