@@ -5,10 +5,6 @@ import bcryptjs from 'bcryptjs';
 export default class User extends Model {
   static init(sequelize) {
     super.init({
-      usertypeid: {
-        type: Sequelize.INTEGER,
-        defaultValue: 4,
-      },
       name: {
         type: Sequelize.STRING,
         defaultValue: '',
@@ -81,4 +77,11 @@ export default class User extends Model {
   passwordIsValid(password) {
     return bcryptjs.compare(password, this.password_hash);
   }
+
+    static associate(models) {
+    this.hasMany(models.Userfoto, { foreignKey: 'userid'});
+//    this.belongsTo(models.Usertype), { foreignKey: 'usertypeid'};
+  }
+
 }
+

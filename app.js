@@ -1,16 +1,19 @@
 import dotenv from 'dotenv';
+import { resolve } from 'path';
 
 dotenv.config();
 
 import './src/database';
 
 import express from 'express';
+
 import homeRoutes from './src/routes/homeRoutes';
 import userRoutes from './src/routes/userRoutes';
 import tokenRoutes from './src/routes/tokenRoutes';
 import usertypeRoutes from './src/routes/usertypeRoutes';
 import tbscontineteRoutes from './src/routes/tbscontineteRoutes';
 import tbspaisRoutes from './src/routes/tbspaisRoutes';
+import userfotoRoutes from './src/routes/userfotoRoutes';
 
 class App {
   constructor() {
@@ -22,7 +25,7 @@ class App {
   middlewares() {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
-
+    this.app.use(express.static(resolve(__dirname, 'uploads')));
   }
 
   routes() {
@@ -32,6 +35,7 @@ class App {
     this.app.use('/usertypes/', usertypeRoutes);
     this.app.use('/continentes/', tbscontineteRoutes);
     this.app.use('/paises/', tbspaisRoutes);
+    this.app.use('/fotos/', userfotoRoutes);
   }
 }
 

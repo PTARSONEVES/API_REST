@@ -17,4 +17,10 @@ export default class Usertype extends Model {
       sequelize,
     });
   }
+
+ static associate(models) {
+//    this.hasMany(models.User, { foreignKey: 'usertypeid'});
+  }
+
 }
+
