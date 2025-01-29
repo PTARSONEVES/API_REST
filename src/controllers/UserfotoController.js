@@ -10,6 +10,7 @@ class UserfotoController {
   store(req, res) {
     return upload(req, res, async (error) => {
       if(error) {
+        console.log('aqui');
         return res.status(400).json({
           errors:[error.code],
         });
