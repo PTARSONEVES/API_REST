@@ -18,7 +18,8 @@ import tbspaisRoutes from './src/routes/tbspaisRoutes';
 import userfotoRoutes from './src/routes/userfotoRoutes';
 
 const whiteList = [
-  'http://localhost:3000'
+  'http://localhost:3000',
+  'http://172.16.16.60:3000'
 ];
 
 const corsOptions = {
