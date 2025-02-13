@@ -13,7 +13,8 @@ export default async (req, res, next) => {
   const [, token] = authorization.split(' ');
 
   try {
-    const dados = jwt.verify(token, process.env.TOKEN_SECRET);
+  // eslint-disable-next-line no-undef
+  const dados = jwt.verify(token, process.env.TOKEN_SECRET);
     const { id, email} = dados;
 
     const user = await User.findOne({

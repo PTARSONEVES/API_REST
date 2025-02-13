@@ -1,11 +1,14 @@
 'use strict';
 
+// eslint-disable-next-line no-undef
 const bcryptjs = require("bcryptjs");
+// eslint-disable-next-line no-undef
 const { fakerPT_BR: faker } = require("@faker-js/faker");
 
 /** @type {import('sequelize-cli').Migration} */
+// eslint-disable-next-line no-undef
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up (queryInterface/*, Sequelize*/) {
     await queryInterface.bulkInsert(
       "users", [
         {
@@ -32,7 +35,7 @@ module.exports = {
     }
   },
 
-  async down (queryInterface, Sequelize) {
+  async down (queryInterface/*, Sequelize*/) {
     await queryInterface.bulkDelete('users', null, {});
   }
 };

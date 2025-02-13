@@ -11,7 +11,7 @@ export default class User extends Model {
         validate: {
           len: {
             args: [3, 255],
-            msg: 'Campo nome deve ter entre 3 e 255 caracteres',
+            msg: '(BACK) Campo nome deve ter entre 3 e 255 caracteres',
           },
         },
       },
@@ -21,7 +21,7 @@ export default class User extends Model {
         validate: {
           len: {
             args: [3, 255],
-            msg: 'Campo sobrenome deve ter entre 3 e 255 caracteres',
+            msg: '(BACK) Campo sobrenome deve ter entre 3 e 255 caracteres',
           },
         },
       },
@@ -31,7 +31,7 @@ export default class User extends Model {
         validate: {
           len: {
             args: [3, 15],
-            msg: 'Campo codinome deve ter entre 3 e 15 caracteres',
+            msg: '(BACK) Campo codinome deve ter entre 3 e 15 caracteres',
           },
         },
       },
@@ -39,11 +39,11 @@ export default class User extends Model {
         type: Sequelize.STRING,
         defaultValue: '',
         unique: {
-          msg: 'Email já existe',
+          msg: '(BACK) Email já existe',
         },
         validate: {
           isEmail: {
-            msg: 'Email inválido',
+            msg: '(BACK) Email inválido',
           },
         },
       },
@@ -57,7 +57,7 @@ export default class User extends Model {
         validate: {
           len: {
             args: [6, 50],
-            msg: 'Campo senha deve ter entre 6 e 50 caracteres',
+            msg: '(BACK) Campo senha deve ter entre 6 e 50 caracteres',
           },
         },
       },
@@ -80,7 +80,7 @@ export default class User extends Model {
 
     static associate(models) {
     this.hasMany(models.Userfoto, { foreignKey: 'userid'});
-//    this.belongsTo(models.Usertype), { foreignKey: 'usertypeid'};
+    this.belongsTo(models.Usertype), { foreignKey: 'usertypeid'};
   }
 
 }

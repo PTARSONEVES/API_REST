@@ -1,10 +1,12 @@
 'use strict';
 
+// eslint-disable-next-line no-undef
 const { fakerPT_BR: faker } = require("@faker-js/faker");
 
 /** @type {import('sequelize-cli').Migration} */
+// eslint-disable-next-line no-undef
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up (queryInterface/*, Sequelize*/) {
     for(let i = 0; i < 30; i++){
       await queryInterface.bulkInsert(
         "tbspais", [
@@ -19,7 +21,7 @@ module.exports = {
     }
   },
 
-  async down (queryInterface, Sequelize) {
+  async down (queryInterface/*, Sequelize*/) {
     await queryInterface.bulkDelete('tbspais', null, {});
   }
 };

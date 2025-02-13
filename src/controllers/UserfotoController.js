@@ -10,7 +10,6 @@ class UserfotoController {
   store(req, res) {
     return upload(req, res, async (error) => {
       if(error) {
-        console.log('aqui');
         return res.status(400).json({
           errors:[error.code],
         });
@@ -20,12 +19,12 @@ class UserfotoController {
         const { originalname, filename } = req.file;
         const { userid } = req.body;
 
-        const foto = await Userfoto.create({ originalname, filename, userid });
+        await Userfoto.create({ originalname, filename, userid });
 
-        res.json(req.file);
-      } catch(e) {
+        return res.json(req.file);
+      } catch {
         return res.status(400).json({
-          errors: ['Usuário não existe.']
+          errors: ['(BACK) Usuário não existe.']
         });
       }
     });

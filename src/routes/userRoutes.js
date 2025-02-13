@@ -7,11 +7,11 @@ const router = new Router();
 
 // Não deve existir
 router.get('/', UserController.index);
-router.get('/', UserController.show);
+router.get('/:id', UserController.show);
 
 router.post('/', UserController.store);
-router.put('/', loginRequired, UserController.update);
-router.delete('/', loginRequired, UserController.delete);
+router.put('/:id', loginRequired, UserController.update);
+router.delete('/:id', loginRequired, UserController.delete);
 
 
 export default router;

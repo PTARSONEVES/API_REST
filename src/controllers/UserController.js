@@ -1,32 +1,29 @@
-import { password } from "../config/database";
+//import { password } from "../config/database";
 import User from "../models/User";
 import Userfoto from "../models/Userfoto";
-import Usertype from "../models/Usertype";
+//import Usertype from "../models/Usertype";
 
 class UserController {
 
   // Método Index
 
   async index(req, res) {
-    const users = await User.findAll({
-      attributes: ['id', 'name', 'lastname', 'alias', 'email', 'usertypeid'],
-      order: [['id', 'DESC'],[Userfoto, 'id', 'DESC']],
-      include: [
-        {
+    try {
+      const users = await User.findAll({
+        attributes: ['id', 'name', 'alias', 'email'/*,'usertypeid'*/],
+        order: [['id', 'DESC'], [Userfoto, 'id', 'DESC']],
+        include: {
           model: Userfoto,
-          foreignKey: 'userid',
-          attributes: ['id', 'filename', 'url'],
-        },
-//        {
-//          model: Usertype,
-//          foreignKey: 'usertypeid',
-//          attributes: ['id', 'typeuser'],
-//        },
-      ],
-    });
-    return res.json(users);
+          attributes: ['url', 'id', 'filename']
+        }
+      });
+      return res.json(users);
+    } catch(e) {
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
+    }
   }
-
 
   // Método Show
 
@@ -36,31 +33,23 @@ class UserController {
 
       if (!id) {
         return res.status(400).json({
-          errors: ['Faltando ID'],
+          errors: ['(BACK) Id do usuário não informada.'],
         });
       }
 
-      const user = await User.findByPk(
-        id,
-        {
-          attributes: ['id', 'name', 'lastname', 'alias', 'email', 'usertypeid'],
-          order: [['id', 'DESC'], [Userfoto, 'id', 'DESC']],
-          include: {
-            model: Userfoto,
-            attributes: ['id', 'filename', 'url'],
-          },
-        },
-      );
-
-      if (!user) {
-        return res.status(400).json({
-          errors: ["Usuário não existe."],
-        });
-      }
-
+      const user = await User.findByPk(id, {
+        attributes: ['id', 'name', 'alias', 'email'/*, 'usertypeid'*/],
+        order: [['id', 'DESC'], [Userfoto, 'id', 'DESC']],
+        include: {
+          model: Userfoto,
+          attributes: ['url', 'id', 'filename']
+        }
+      });
       return res.json(user);
-    } catch (e) {
-      return res.json(null);
+    } catch(e) {
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
     }
   }
 
@@ -70,8 +59,8 @@ class UserController {
   async store(req, res) {
     try {
       const novoUser = await User.create(req.body);
-      const { id, name, lastname, alias, email, usertypeid } = novoUser;
-      return res.json({ id, name, lastname, alias, email, usertypeid });
+      const { id, name, lastname, alias, email/*, usertypeid*/ } = novoUser;
+      return res.json({ id, name, lastname, alias, email/*, usertypeid*/ });
     } catch (e) {
       res.status(400).json({
         errors: e.errors.map((err) => err.message),
@@ -83,18 +72,24 @@ class UserController {
 
   async update(req, res) {
     try {
-      const user = await User.findByPk(req.userId);
+      if (!req.params.id) {
+        return res.status(400).json({
+          errors: ['(BACK) Id do usuário não informada.'],
+        });
+      }
+      const user = await User.findByPk(req.params.id);
 
       if (!user) {
         return res.status(400).json({
-          errors: ['Usuário não existe.'],
+          errors: ['(BACK) Usuário não existe.'],
         });
       }
 
       const novosDados = await user.update(req.body);
-      const { id, name, lastname, alias, email, usertypeid } = novosDados;
-      return res.json({ id, name, lastname, alias, email, usertypeid });
+      const { id, name, lastname, alias, email/*, usertypeid*/ } = novosDados;
+      return res.json({ id, name, lastname, alias, email/*, usertypeid*/ });
     } catch (e) {
+      console.log(e);
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
       });
@@ -105,11 +100,17 @@ class UserController {
 
   async delete(req, res) {
     try {
-      const user = await User.findByPk(req.userId);
+      if (!req.params.id) {
+        return res.status(400).json({
+          errors: ['(BACK) Id do usuário não informada.'],
+        });
+      }
+
+      const user = await User.findByPk(req.params.id);
 
       if (!user) {
         return res.status(400).json({
-          errors: ['Usuário não existe.'],
+          errors: ['(BACK) Usuário não existe.'],
         });
       }
 

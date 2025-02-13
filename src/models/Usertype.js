@@ -19,7 +19,7 @@ export default class Usertype extends Model {
   }
 
  static associate(models) {
-//    this.hasMany(models.User, { foreignKey: 'usertypeid'});
+    this.hasMany(models.User, { foreignKey: 'usertypeid'});
   }
 
 }

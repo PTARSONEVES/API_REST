@@ -15,6 +15,9 @@
     "sourceType": "module"
   },
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "class-methods-use-this": "off",
+    "eslint-plugin-import/first": "off",
+    "no-param-reassign": "off"
   }
 }

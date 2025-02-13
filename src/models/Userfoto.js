@@ -39,6 +39,7 @@ export default class Userfoto extends Model {
         },
       }, {
       sequelize,
+      tableName: 'userfotos',
     });
 
     return this;
