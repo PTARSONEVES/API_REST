@@ -63,6 +63,7 @@ export default class User extends Model {
       },
     }, {
       sequelize,
+      underscored: false,
     });
 
     this.addHook('beforeSave', async user => {

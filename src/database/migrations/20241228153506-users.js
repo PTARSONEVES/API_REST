@@ -34,7 +34,7 @@ module.exports = {
       },
       usertypeid: {
         type: Sequelize.INTEGER,
-        defaultValue: 1,
+        allowNull: true,
         references: {
           model: 'usertypes',
           key: 'id',

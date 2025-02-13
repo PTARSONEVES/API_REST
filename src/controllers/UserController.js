@@ -1,7 +1,7 @@
 //import { password } from "../config/database";
 import User from "../models/User";
 import Userfoto from "../models/Userfoto";
-//import Usertype from "../models/Usertype";
+import Usertype from "../models/Usertype";
 
 class UserController {
 
@@ -10,12 +10,16 @@ class UserController {
   async index(req, res) {
     try {
       const users = await User.findAll({
-        attributes: ['id', 'name', 'alias', 'email'/*,'usertypeid'*/],
+        attributes: ['id', 'name', 'alias', 'email'],
         order: [['id', 'DESC'], [Userfoto, 'id', 'DESC']],
-        include: {
+        include: [{
           model: Userfoto,
           attributes: ['url', 'id', 'filename']
-        }
+        },
+        {
+          model: Usertype,
+          attributes: ['id', 'typeuser']
+        }]
       });
       return res.json(users);
     } catch(e) {
@@ -38,12 +42,16 @@ class UserController {
       }
 
       const user = await User.findByPk(id, {
-        attributes: ['id', 'name', 'alias', 'email'/*, 'usertypeid'*/],
+        attributes: ['id', 'name', 'alias', 'email'],
         order: [['id', 'DESC'], [Userfoto, 'id', 'DESC']],
-        include: {
+        include: [{
           model: Userfoto,
           attributes: ['url', 'id', 'filename']
-        }
+        },
+        {
+          model: Usertype,
+          attributes: ['id', 'typeuser']
+        }]
       });
       return res.json(user);
     } catch(e) {
@@ -59,8 +67,8 @@ class UserController {
   async store(req, res) {
     try {
       const novoUser = await User.create(req.body);
-      const { id, name, lastname, alias, email/*, usertypeid*/ } = novoUser;
-      return res.json({ id, name, lastname, alias, email/*, usertypeid*/ });
+      const { id, name, lastname, alias, email } = novoUser;
+      return res.json({ id, name, lastname, alias, email });
     } catch (e) {
       res.status(400).json({
         errors: e.errors.map((err) => err.message),
@@ -86,8 +94,8 @@ class UserController {
       }
 
       const novosDados = await user.update(req.body);
-      const { id, name, lastname, alias, email/*, usertypeid*/ } = novosDados;
-      return res.json({ id, name, lastname, alias, email/*, usertypeid*/ });
+      const { id, name, lastname, alias, email } = novosDados;
+      return res.json({ id, name, lastname, alias, email });
     } catch (e) {
       console.log(e);
       return res.status(400).json({
