@@ -8,7 +8,7 @@ class TbspaisController {
     try {
       const paises = await Tbspais.findAll();
       return res.json(paises);
-    } catch (e) {
+    } catch {
       return res.json(null);
     }
   }
@@ -19,7 +19,7 @@ class TbspaisController {
     try {
       const pais = await Tbspais.findByPk(req.params.id);
       return res.json(pais);
-    } catch (e) {
+    } catch {
       return res.json(null);
     }
   }
@@ -87,7 +87,7 @@ class TbspaisController {
 
       await Tbspais.destroy();
 
-      return res.json(user);
+      return res.json(pais);
 
     } catch (e) {
       return res.status(400).json({

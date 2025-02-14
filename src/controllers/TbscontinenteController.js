@@ -8,7 +8,7 @@ class TbscontinenteController {
     try {
       const continentes = await Tbscontinente.findAll();
       return res.json(continentes);
-    } catch (e) {
+    } catch {
       return res.json(null);
     }
   }
@@ -19,7 +19,7 @@ class TbscontinenteController {
     try {
       const continente = await Tbscontinente.findByPk(req.params.id);
       return res.json(continente);
-    } catch (e) {
+    } catch {
       return res.json(null);
     }
   }
@@ -87,7 +87,7 @@ class TbscontinenteController {
 
       await Tbscontinente.destroy();
 
-      return res.json(user);
+      return res.json(continente);
 
     } catch (e) {
       return res.status(400).json({

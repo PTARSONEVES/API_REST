@@ -67,8 +67,8 @@ class UserController {
   async store(req, res) {
     try {
       const novoUser = await User.create(req.body);
-      const { id, name, lastname, alias, email } = novoUser;
-      return res.json({ id, name, lastname, alias, email });
+      const { id, name, lastname, alias, email, usertypeid } = novoUser;
+      return res.json({ id, name, lastname, alias, email, usertypeid });
     } catch (e) {
       res.status(400).json({
         errors: e.errors.map((err) => err.message),
@@ -94,8 +94,8 @@ class UserController {
       }
 
       const novosDados = await user.update(req.body);
-      const { id, name, lastname, alias, email } = novosDados;
-      return res.json({ id, name, lastname, alias, email });
+      const { id, name, lastname, alias, email, usertypeid } = novosDados;
+      return res.json({ id, name, lastname, alias, email, usertypeid });
     } catch (e) {
       console.log(e);
       return res.status(400).json({

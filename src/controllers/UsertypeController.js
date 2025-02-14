@@ -8,7 +8,7 @@ class UsertypeController {
     try {
       const usertypes = await Usertype.findAll();
       return res.json(usertypes);
-    } catch (e) {
+    } catch {
       return res.json(null);
     }
   }
@@ -19,7 +19,7 @@ class UsertypeController {
     try {
       const usertype = await Usertype.findByPk(req.params.id);
       return res.json(usertype);
-    } catch (e) {
+    } catch {
       return res.json(null);
     }
   }
@@ -87,7 +87,7 @@ class UsertypeController {
 
       await usertype.destroy();
 
-      return res.json(user);
+      return res.json(usertype);
 
     } catch (e) {
       return res.status(400).json({

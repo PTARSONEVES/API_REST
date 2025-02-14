@@ -26,7 +26,9 @@ class TokenController {
     }
 
     const { id } = user;
+    // eslint-disable-next-line no-undef
     const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
+    // eslint-disable-next-line no-undef
       expiresIn: process.env.TOKEN_EXPIRATION,
     });
 
