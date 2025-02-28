@@ -1,4 +1,5 @@
 //import { password } from "../config/database";
+import Email from "../models/Email";
 import User from "../models/User";
 import Userfoto from "../models/Userfoto";
 import Usertype from "../models/Usertype";
@@ -19,6 +20,10 @@ class UserController {
         {
           model: Usertype,
           attributes: ['id', 'typeuser']
+        },
+        {
+          model: Email,
+          attributes: ['id', 'email', 'confirmed']
         }]
       });
       return res.json(users);
@@ -51,6 +56,10 @@ class UserController {
         {
           model: Usertype,
           attributes: ['id', 'typeuser']
+        },
+        {
+          model: Email,
+          attributes: ['id', 'email', 'confirmed']
         }]
       });
       return res.json(user);
