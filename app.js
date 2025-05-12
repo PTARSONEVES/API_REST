@@ -13,7 +13,7 @@ import homeRoutes from './src/routes/homeRoutes';
 import userRoutes from './src/routes/userRoutes';
 import tokenRoutes from './src/routes/tokenRoutes';
 import usertypeRoutes from './src/routes/usertypeRoutes';
-import tbscontineteRoutes from './src/routes/tbscontineteRoutes';
+import tbscontinenteRoutes from './src/routes/tbscontinenteRoutes';
 import tbspaisRoutes from './src/routes/tbspaisRoutes';
 import userfotoRoutes from './src/routes/userfotoRoutes';
 
@@ -53,7 +53,7 @@ class App {
     this.app.use('/users/', userRoutes);
     this.app.use('/tokens/', tokenRoutes);
     this.app.use('/usertypes/', usertypeRoutes);
-    this.app.use('/continentes/', tbscontineteRoutes);
+    this.app.use('/continentes/', tbscontinenteRoutes);
     this.app.use('/paises/', tbspaisRoutes);
     this.app.use('/fotos/', userfotoRoutes);
   }

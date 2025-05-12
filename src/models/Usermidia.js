@@ -11,29 +11,36 @@ export default class Usermidia extends Model {
         },
       },
       {
+/*
         hooks: {
-          // eslint-disable-next-line no-unused-vars
-          beforeCreate: (usermidia, options) => {
-            usermidia.chave = 'teste';
+          beforeSave: () => {
+            Usermidia.chave = 'teste';
           },
         },
+*/
         sequelize,
         underscored: false,
       },
     );
 
+
+    this.addHook('beforeSave', async usermidia => {
 /*
-    this.addHook('beforeSave', usermidia => {
       if(usermidia.typemidiaid && usermidia.userid) {
         usermidia.chave = usermidia.typemidiaid.toString() + usermidia.userid.toString();
       }
 
       usermidia.chave = 'teste';
       console.log('aqui');
+*/
+      usermidia.chave = 'teste';
+      await Usermidia.create({
+        chave: "teste",
+      });
     });
 
     return this;
-*/
+
   }
 
   /*
