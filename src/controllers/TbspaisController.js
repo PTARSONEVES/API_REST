@@ -44,7 +44,7 @@ class TbspaisController {
     try {
       if (!req.params.id) {
         return res.status(400).json({
-          errors: ['ID não enviado.'],
+          errors: ['BACK - ID não enviado.'],
         });
       }
 
@@ -52,7 +52,7 @@ class TbspaisController {
 
       if (!pais) {
         return res.status(400).json({
-          errors: ['pais não existe.'],
+          errors: ['BACK - pais não existe.'],
         });
       }
 
@@ -73,7 +73,7 @@ class TbspaisController {
     try {
       if (!req.params.id) {
         return res.status(400).json({
-          errors: ['ID não enviado.'],
+          errors: ['BACK - ID não enviado.'],
         });
       }
 
@@ -81,7 +81,7 @@ class TbspaisController {
 
       if (!pais) {
         return res.status(400).json({
-          errors: ['pais não existe.'],
+          errors: ['BACK - pais não existe.'],
         });
       }
 

@@ -11,8 +11,8 @@ export default class User extends Model {
           defaultValue: '',
           validate: {
             len: {
-              args: [3, 255],
-              msg: '(BACK) Campo nome deve ter entre 3 e 255 caracteres',
+              args: [3, 50],
+              msg: 'BACK - Campo nome deve ter entre 3 e 50 caracteres',
             },
           },
         },
@@ -21,8 +21,8 @@ export default class User extends Model {
           defaultValue: '',
           validate: {
             len: {
-              args: [3, 255],
-              msg: '(BACK) Campo sobrenome deve ter entre 3 e 255 caracteres',
+              args: [3, 50],
+              msg: 'BACK - Campo sobrenome deve ter entre 3 e 50 caracteres',
             },
           },
         },
@@ -31,8 +31,8 @@ export default class User extends Model {
           defaultValue: '',
           validate: {
             len: {
-              args: [3, 15],
-              msg: '(BACK) Campo codinome deve ter entre 3 e 15 caracteres',
+              args: [3, 50],
+              msg: 'BACK - Campo codinome deve ter entre 3 e 50 caracteres',
             },
           },
         },
@@ -40,11 +40,11 @@ export default class User extends Model {
           type: Sequelize.STRING,
           defaultValue: '',
           unique: {
-            msg: '(BACK) Email já existe',
+            msg: 'BACK - Email já existe',
           },
           validate: {
             isEmail: {
-              msg: '(BACK) Email inválido',
+              msg: 'BACK - Email inválido',
             },
           },
         },
@@ -58,7 +58,7 @@ export default class User extends Model {
           validate: {
             len: {
               args: [6, 50],
-              msg: '(BACK) Campo senha deve ter entre 6 e 50 caracteres',
+              msg: 'BACK - Campo senha deve ter entre 6 e 50 caracteres',
             },
           },
         },

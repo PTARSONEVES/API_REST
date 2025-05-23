@@ -32,7 +32,7 @@ class EmailController {
 
       if (!id) {
         return res.status(400).json({
-          errors: ['(BACK) Id do usuário não informada.'],
+          errors: ['BACK -  Id do usuário não informada.'],
         });
       }
 
@@ -73,14 +73,14 @@ class EmailController {
     try {
       if (!req.params.id) {
         return res.status(400).json({
-          errors: ['(BACK) Id do email não informada.'],
+          errors: ['BACK -  Id do email não informada.'],
         });
       }
       const emailup = await Email.findByPk(req.params.id);
 
       if (!emailup) {
         return res.status(400).json({
-          errors: ['(BACK) Email não existe.'],
+          errors: ['BACK -  Email não existe.'],
         });
       }
 
@@ -101,7 +101,7 @@ class EmailController {
     try {
       if (!req.params.id) {
         return res.status(400).json({
-          errors: ['(BACK) Id do email não informada.'],
+          errors: ['BACK -  Id do email não informada.'],
         });
       }
 
@@ -109,7 +109,7 @@ class EmailController {
 
       if (!email) {
         return res.status(400).json({
-          errors: ['(BACK) Email não existe.'],
+          errors: ['BACK -  Email não existe.'],
         });
       }
 

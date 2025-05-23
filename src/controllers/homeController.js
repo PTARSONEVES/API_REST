@@ -1,6 +1,9 @@
 class HomeController {
   index(req, res) {
-    res.send("olá mundo!!")
+    res.json({
+      tudoCerto: true,
+    });
+//    res.send("olá mundo!!")
   }
 }
 

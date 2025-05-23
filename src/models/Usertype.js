@@ -9,7 +9,7 @@ export default class Usertype extends Model {
         validate: {
           len: {
             args: [3, 35],
-            msg: 'Campo deve ter entre 3 e 35 caracteres',
+            msg: 'BACK - Campo deve ter entre 3 e 35 caracteres',
           },
         },
       },

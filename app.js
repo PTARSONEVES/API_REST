@@ -1,13 +1,13 @@
 import dotenv from 'dotenv';
-import { resolve } from 'path';
-
 dotenv.config();
+import { resolve } from 'path';
 
 import './src/database';
 
 import express from 'express'
 import cors from 'cors';
 import helmet from 'helmet';
+import consign from 'consign';
 
 import homeRoutes from './src/routes/homeRoutes';
 import userRoutes from './src/routes/userRoutes';
@@ -31,6 +31,10 @@ const corsOptions = {
     }
   }
 };
+
+const rotas = consign().include('./src/routes');
+
+console.log(rotas._files);
 
 class App {
   constructor() {

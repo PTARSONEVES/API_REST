@@ -7,7 +7,7 @@ class TokenController {
 
     if (!email || !password) {
       return res.status(400).json({
-        errors: ['Credenciais inválidas'],
+        errors: ['BACK - Credenciais inválidas'],
       });
     }
 
@@ -15,13 +15,13 @@ class TokenController {
 
     if (!user) {
       return res.status(400).json({
-        errors: ["Usuário não existe!"],
+        errors: ["BACK - Usuário não existe!"],
       });
     }
 
-    if (!await user.passwordIsValid(password)) {
+    if (!(await user.passwordIsValid(password))) {
       return res.status(400).json({
-        errors: ["Senha inválida"],
+        errors: ["BACK - Senha inválida"],
       })
     }
 

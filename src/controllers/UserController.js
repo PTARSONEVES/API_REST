@@ -38,15 +38,7 @@ class UserController {
 
   async show(req, res) {
     try {
-      const { id } = req.params;
-
-      if (!id) {
-        return res.status(400).json({
-          errors: ['(BACK) Id do usuário não informada.'],
-        });
-      }
-
-      const user = await User.findByPk(id, {
+      const user = await User.findByPk(req.userId, {
         attributes: ['id', 'name', 'alias', 'email'],
         order: [['id', 'DESC'], [Userfoto, 'id', 'DESC']],
         include: [{
@@ -89,16 +81,11 @@ class UserController {
 
   async update(req, res) {
     try {
-      if (!req.params.id) {
-        return res.status(400).json({
-          errors: ['(BACK) Id do usuário não informada.'],
-        });
-      }
-      const user = await User.findByPk(req.params.id);
+      const user = await User.findByPk(req.userId);
 
       if (!user) {
         return res.status(400).json({
-          errors: ['(BACK) Usuário não existe.'],
+          errors: ['BACK -  Usuário não existe.'],
         });
       }
 
@@ -119,7 +106,7 @@ class UserController {
     try {
       if (!req.params.id) {
         return res.status(400).json({
-          errors: ['(BACK) Id do usuário não informada.'],
+          errors: ['BACK -  Id do usuário não informada.'],
         });
       }
 
@@ -127,7 +114,7 @@ class UserController {
 
       if (!user) {
         return res.status(400).json({
-          errors: ['(BACK) Usuário não existe.'],
+          errors: ['BACK -  Usuário não existe.'],
         });
       }
 

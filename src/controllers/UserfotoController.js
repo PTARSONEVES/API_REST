@@ -24,7 +24,7 @@ class UserfotoController {
         return res.json(req.file);
       } catch {
         return res.status(400).json({
-          errors: ['(BACK) Usuário não existe.']
+          errors: ['BACK -  Usuário não existe.']
         });
       }
     });

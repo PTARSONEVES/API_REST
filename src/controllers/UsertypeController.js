@@ -44,7 +44,7 @@ class UsertypeController {
     try {
       if (!req.params.id) {
         return res.status(400).json({
-          errors: ['ID não enviado.'],
+          errors: ['BACK - ID não enviado.'],
         });
       }
 
@@ -52,7 +52,7 @@ class UsertypeController {
 
       if (!usertype) {
         return res.status(400).json({
-          errors: ['Tipo de usuário não existe.'],
+          errors: ['BACK - Tipo de usuário não existe.'],
         });
       }
 
@@ -73,7 +73,7 @@ class UsertypeController {
     try {
       if (!req.params.id) {
         return res.status(400).json({
-          errors: ['ID não enviado.'],
+          errors: ['BACK - ID não enviado.'],
         });
       }
 
@@ -81,7 +81,7 @@ class UsertypeController {
 
       if (!usertype) {
         return res.status(400).json({
-          errors: ['Tipo de usuário não existe.'],
+          errors: ['BACK - Tipo de usuário não existe.'],
         });
       }
 

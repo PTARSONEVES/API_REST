@@ -24,7 +24,7 @@ export default class Tbspais extends Model {
           validate: {
             len: {
               args: [3, 150],
-              msg: 'Campo deve ter entre 3 e 150 caracteres',
+              msg: 'BACK - Campo deve ter entre 3 e 150 caracteres',
             },
           },
         },
@@ -34,7 +34,7 @@ export default class Tbspais extends Model {
           validate: {
             len: {
               args: [3, 35],
-              msg: 'Campo deve ter entre 3 e 150 caracteres',
+              msg: 'BACK - Campo deve ter entre 3 e 150 caracteres',
             },
           },
         },
@@ -44,7 +44,7 @@ export default class Tbspais extends Model {
           validate: {
             len: {
               args: [1, 4],
-              msg: 'Campo deve ter entre 1 e 4 caracteres',
+              msg: 'BACK - Campo deve ter entre 1 e 4 caracteres',
             },
           },
         },

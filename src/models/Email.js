@@ -7,11 +7,11 @@ export default class Email extends Model {
         type: Sequelize.STRING,
         defaultValue: '',
         unique: {
-          msg: '(BACK) Email já existe',
+          msg: 'BACK - Email já existe',
         },
         validate: {
           isEmail: {
-            msg: '(BACK) Email inválido',
+            msg: 'BACK - Email inválido',
           },
         },
       },

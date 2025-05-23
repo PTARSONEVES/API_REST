@@ -6,7 +6,7 @@ export default async (req, res, next) => {
 
   if (!authorization) {
     return res.status(401).json({
-      errors: ['Login required'],
+      errors: ['BACK - Login required'],
     });
   }
 
@@ -26,7 +26,7 @@ export default async (req, res, next) => {
 
     if (!user) {
       return res.status(401).json({
-        errors: ['Usuário inválido'],
+        errors: ['BACK - Usuário inválido'],
       });
     }
 
@@ -35,7 +35,7 @@ export default async (req, res, next) => {
     return next();
   } catch {
     return res.status(401).json({
-      errors: ["Token expirado ou inválido"],
+      errors: ["BACK - Token expirado ou inválido"],
     });
   }
 };

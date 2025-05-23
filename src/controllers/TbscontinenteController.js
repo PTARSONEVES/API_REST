@@ -44,7 +44,7 @@ class TbscontinenteController {
     try {
       if (!req.params.id) {
         return res.status(400).json({
-          errors: ['ID não enviado.'],
+          errors: ['BACK - ID não enviado.'],
         });
       }
 
@@ -52,7 +52,7 @@ class TbscontinenteController {
 
       if (!continente) {
         return res.status(400).json({
-          errors: ['Continente não existe.'],
+          errors: ['BACK - Continente não existe.'],
         });
       }
 
@@ -73,7 +73,7 @@ class TbscontinenteController {
     try {
       if (!req.params.id) {
         return res.status(400).json({
-          errors: ['ID não enviado.'],
+          errors: ['BACK - ID não enviado.'],
         });
       }
 
@@ -81,7 +81,7 @@ class TbscontinenteController {
 
       if (!continente) {
         return res.status(400).json({
-          errors: ['Continente não existe.'],
+          errors: ['BACK - Continente não existe.'],
         });
       }
 
