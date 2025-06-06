@@ -14,7 +14,9 @@ import userRoutes from './src/routes/userRoutes';
 import tokenRoutes from './src/routes/tokenRoutes';
 import usertypeRoutes from './src/routes/usertypeRoutes';
 import tbscontinenteRoutes from './src/routes/tbscontinenteRoutes';
+import tbsbrufRoutes from './src/routes/tbsbrufRoutes';
 import tbspaisRoutes from './src/routes/tbspaisRoutes';
+import tbsbrmunicipioRoutes from './src/routes/tbsbrmunicipiosRoutes';
 import userfotoRoutes from './src/routes/userfotoRoutes';
 
 const whiteList = [
@@ -58,8 +60,10 @@ class App {
     this.app.use('/tokens/', tokenRoutes);
     this.app.use('/usertypes/', usertypeRoutes);
     this.app.use('/continentes/', tbscontinenteRoutes);
+    this.app.use('/ufs/', tbsbrufRoutes);
     this.app.use('/paises/', tbspaisRoutes);
     this.app.use('/fotos/', userfotoRoutes);
+    this.app.use('/municipios/', tbsbrmunicipioRoutes);
   }
 }
 

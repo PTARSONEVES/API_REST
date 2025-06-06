@@ -14,7 +14,7 @@ export default class Tbspais extends Model {
           validate: {
             len: {
               args: [1, 4],
-              msg: 'Campo deve ter entre 1 e 4 caracteres',
+              msg: 'BACK - Campo deve ter entre 1 e 4 caracteres',
             },
           },
         },
@@ -33,7 +33,17 @@ export default class Tbspais extends Model {
           defaultValue: '',
           validate: {
             len: {
-              args: [3, 35],
+              args: [3, 150],
+              msg: 'BACK - Campo deve ter entre 3 e 150 caracteres',
+            },
+          },
+        },
+        paispopsem: {
+          type: Sequelize.STRING(150),
+          defaultValue: '',
+          validate: {
+            len: {
+              args: [3, 150],
               msg: 'BACK - Campo deve ter entre 3 e 150 caracteres',
             },
           },
@@ -55,4 +65,9 @@ export default class Tbspais extends Model {
       }
     );
   }
+
+  static associate(models) {
+    this.belongsTo(models.Tbscontinente, { foreignKey: 'continenteid'});
+  }
+
 }

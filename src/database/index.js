@@ -8,12 +8,16 @@ import User from '../models/User';
 import Userfoto from '../models/Userfoto';
 import Usermidia from '../models/Usermidia';
 import Usertype from '../models/Usertype';
+import Tbsbruf from '../models/Tbsbruf';
+import Tbsbrmunicipio from '../models/Tbsbrmunicipio';
 
 
 const models = [
   Email,
   Tbscontinente,
   Tbspais,
+  Tbsbruf,
+  Tbsbrmunicipio,
   Typemidia,
   User,
   Userfoto,
