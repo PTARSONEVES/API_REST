@@ -48,6 +48,10 @@ module.exports = {
         type: Sequelize.STRING(80),
         allowNull: false,
       },
+      cityddd: {
+        type: Sequelize.STRING(2),
+        allowNull: false,
+      },
       created_at: {
         allowNull: false,
         defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),

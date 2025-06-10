@@ -15,7 +15,7 @@ class TbsbrmunicipioController {
         if(flg.id <= 0) {
           if(flg.ufid <= 0) {
             const municipios = await Tbsbrmunicipio.findAll({
-              attributes: ['id', 'ibgefull', 'ibgeshort', 'ufid','cityname','citylaw','datelaw','dateinstall','citynamesem'],
+              attributes: ['id', 'ibgefull', 'ibgeshort', 'ufid','cityname','citylaw','datelaw','dateinstall','citynamesem','cityddd'],
               order: [['ufid', 'ASC'],['citynamesem', 'ASC']],
               include: [{
                 model: Tbsbruf,
@@ -34,7 +34,7 @@ class TbsbrmunicipioController {
           } else {
             const municipios = await Tbsbrmunicipio.findAll({
               where: {ufid: flg.ufid},
-              attributes: ['id', 'ibgefull', 'ibgeshort', 'ufid','cityname','citylaw','datelaw','dateinstall','citynamesem'],
+              attributes: ['id', 'ibgefull', 'ibgeshort', 'ufid','cityname','citylaw','datelaw','dateinstall','citynamesem','cityddd'],
               order: [['citynamesem', 'ASC']],
               include: [{
                 model: Tbsbruf,
@@ -54,7 +54,7 @@ class TbsbrmunicipioController {
         } else {
           const municipio = await Tbsbrmunicipio.findAll({
             where: {id: flg.id},
-            attributes: ['id', 'ibgefull', 'ibgeshort', 'ufid','cityname','citylaw','datelaw','dateinstall','citynamesem'],
+            attributes: ['id', 'ibgefull', 'ibgeshort', 'ufid','cityname','citylaw','datelaw','dateinstall','citynamesem','cityddd'],
             order: [['citynamesem', 'ASC']],
             include: [{
               model: Tbsbruf,

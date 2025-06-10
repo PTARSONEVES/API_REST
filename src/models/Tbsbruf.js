@@ -38,7 +38,7 @@ export default class Tbsbruf extends Model {
           validate: {
             len: {
               args: [3, 40],
-              msg: 'BACK - Campo deve ter entre 2 e 40 caracteres',
+              msg: 'BACK - Campo deve ter entre 3 e 40 caracteres',
             },
           },
         },

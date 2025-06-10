@@ -58,6 +58,16 @@ export default class Tbsbrmunicipio extends Model {
             },
           },
         },
+        cityddd: {
+          type: Sequelize.STRING,
+          defaultValue:'00',
+          validate: {
+            len: {
+              args: [2],
+              msg: 'BACK - Campo deve ter 2 caracteres',
+            },
+          },
+        },
       },
       {
         sequelize,
