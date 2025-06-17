@@ -10,6 +10,9 @@ import Usermidia from '../models/Usermidia';
 import Usertype from '../models/Usertype';
 import Tbsbruf from '../models/Tbsbruf';
 import Tbsbrmunicipio from '../models/Tbsbrmunicipio';
+import Tbsissitem from '../models/Tbsissitem';
+import Tbsisssubitem from '../models/Tbsisssubitem';
+import Tbsissdnac from '../models/Tbsissdnac';
 
 
 const models = [
@@ -18,6 +21,9 @@ const models = [
   Tbspais,
   Tbsbruf,
   Tbsbrmunicipio,
+  Tbsissitem,
+  Tbsisssubitem,
+  Tbsissdnac,
   Typemidia,
   User,
   Userfoto,

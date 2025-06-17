@@ -15,12 +15,16 @@ import tokenRoutes from './src/routes/tokenRoutes';
 import usertypeRoutes from './src/routes/usertypeRoutes';
 import tbscontinenteRoutes from './src/routes/tbscontinenteRoutes';
 import tbsbrufRoutes from './src/routes/tbsbrufRoutes';
+import tbsissitemRoutes from './src/routes/tbsissitemRoutes';
+import tbsisssubitemRoutes from './src/routes/tbsisssubitemRoutes';
+import tbsissdnacRoutes from './src/routes/tbsissdnacRoutes';
 import tbspaisRoutes from './src/routes/tbspaisRoutes';
 import tbsbrmunicipioRoutes from './src/routes/tbsbrmunicipiosRoutes';
 import userfotoRoutes from './src/routes/userfotoRoutes';
 
 const whiteList = [
   'http://localhost:3000',
+  'http://localhost:5173',
   'http://172.16.16.60:3000'
 ];
 
@@ -61,6 +65,9 @@ class App {
     this.app.use('/usertypes/', usertypeRoutes);
     this.app.use('/continentes/', tbscontinenteRoutes);
     this.app.use('/ufs/', tbsbrufRoutes);
+    this.app.use('/iss/', tbsissitemRoutes);
+    this.app.use('/iss/subitem/', tbsisssubitemRoutes);
+    this.app.use('/iss/subitem/dnac/', tbsissdnacRoutes);
     this.app.use('/paises/', tbspaisRoutes);
     this.app.use('/fotos/', userfotoRoutes);
     this.app.use('/municipios/', tbsbrmunicipioRoutes);

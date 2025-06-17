@@ -2,7 +2,6 @@ import Tbsbrmunicipio from "../models/Tbsbrmunicipio";
 import Tbspais from "../models/Tbspais";
 import Tbsbruf from "../models/Tbsbruf";
 import Tbscontinente from "../models/Tbscontinente";
-import { Sequelize } from "sequelize";
 
 class TbsbrmunicipioController {
 
