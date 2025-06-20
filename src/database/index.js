@@ -13,6 +13,12 @@ import Tbsbrmunicipio from '../models/Tbsbrmunicipio';
 import Tbsissitem from '../models/Tbsissitem';
 import Tbsisssubitem from '../models/Tbsisssubitem';
 import Tbsissdnac from '../models/Tbsissdnac';
+import Tbssecaocnae from '../models/cnae/Tbssecaocnae';
+import Tbsdivisaocnae from '../models/cnae/Tbsdivisaocnae';
+import Tbsgrupocnae from '../models/cnae/Tbsgrupocnae';
+import Tbsclassecnae from '../models/cnae/Tbsclassecnae';
+import Tbssubclassecnae from '../models/cnae/Tbssubclassecnae';
+import Tbscnae from '../models/cnae/Tbscnae';
 
 
 const models = [
@@ -21,6 +27,12 @@ const models = [
   Tbspais,
   Tbsbruf,
   Tbsbrmunicipio,
+  Tbscnae,
+  Tbssecaocnae,
+  Tbsdivisaocnae,
+  Tbsgrupocnae,
+  Tbsclassecnae,
+  Tbssubclassecnae,
   Tbsissitem,
   Tbsisssubitem,
   Tbsissdnac,
