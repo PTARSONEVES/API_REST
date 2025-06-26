@@ -5,8 +5,10 @@ import TbsclassecnaeController from '../../controllers/cnae/TbsclassecnaeControl
 
 const router = new Router();
 
+
 // Não deve existir
-router.get('/:id', TbsclassecnaeController.index);
+router.get('/:id/:secaoid/:divisaoid/:grupoid', TbsclassecnaeController.index);
+//router.get('/:id', TbsclassecnaeController.index);
 
 //router.post('/', TbscontinenteController.store);
 //router.put('/:id', loginRequired, TbscontinenteController.update);

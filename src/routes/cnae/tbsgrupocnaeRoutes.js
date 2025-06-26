@@ -6,7 +6,7 @@ import TbsgrupocnaeController from '../../controllers/cnae/TbsgrupocnaeControlle
 const router = new Router();
 
 // Não deve existir
-router.get('/:id', TbsgrupocnaeController.index);
+router.get('/:id/:secaoid/:divisaoid', TbsgrupocnaeController.index);
 
 //router.post('/', TbscontinenteController.store);
 //router.put('/:id', loginRequired, TbscontinenteController.update);

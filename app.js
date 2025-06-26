@@ -44,9 +44,9 @@ const corsOptions = {
   }
 };
 
-const rotas = consign().include('./src/routes');
+//const rotas = consign().include('./src/routes');
 
-console.log(rotas._files);
+//console.log(rotas._files);
 
 class App {
   constructor() {
@@ -78,8 +78,8 @@ class App {
     this.app.use('/cnae/secao/', tbssecaocnaeRoutes);
     this.app.use('/cnae/divisao/', tbsdivisaocnaeRoutes);
     this.app.use('/cnae/grupo/', tbsgrupocnaeRoutes);
-    this.app.use('/cnae/classe/', tbsclassecnaeRoutes);
-    this.app.use('/cnae/subclasse', tbssubclassecnaeRoutes);
+    this.app.use('/cnae/c/classe/', tbsclassecnaeRoutes);
+    this.app.use('/cnae/subclasse/', tbssubclassecnaeRoutes);
     this.app.use('/paises/', tbspaisRoutes);
     this.app.use('/fotos/', userfotoRoutes);
     this.app.use('/municipios/', tbsbrmunicipioRoutes);
