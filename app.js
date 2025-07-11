@@ -31,6 +31,7 @@ import userfotoRoutes from './src/routes/userfotoRoutes';
 const whiteList = [
   'http://localhost:3000',
   'http://localhost:5173',
+  'http://172.16.16.60:5173',
   'http://172.16.16.60:3000'
 ];
 

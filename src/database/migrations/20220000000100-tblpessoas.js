@@ -4,36 +4,38 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('users', {
+    await queryInterface.createTable('tblpessoas', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      passoaid: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: 'tblpessoas',
-          key: 'id',
-        },
-        onDelete: "SET NULL",
-        onUpdate: "CASCADE",
-      },
-      usertypeid: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: 'tbsusertypes',
-          key: 'id',
-        },
-        onDelete: "SET NULL",
-        onUpdate: "CASCADE",
-      },
-      password_hash: {
-        type: Sequelize.STRING,
+      nomepessoa: {
+        type: Sequelize.STRING(200),
         allowNull: false,
+      },
+      pessoatipoid: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'tbspessoatipos',
+          key: 'id',
+        },
+        onDelete: "SET NULL",
+        onUpdate: "CASCADE",
+      },
+      cpfpessoa: {
+        type: Sequelize.STRING(11),
+        allowNull: false,
+      },
+      cnpjpessoa: {
+        type: Sequelize.STRING(14),
+        allowNull: false,
+      },
+      nascpessoa: {
+        type: Sequelize.DATE,
+        allowNull: true,
       },
       created_at: {
         allowNull: false,
@@ -48,7 +50,7 @@ module.exports = {
     });
   },
 
-  async down (queryInterface) {
-    await queryInterface.dropTable('users');
+  async down (queryInterface, Sequelize) {
+    await queryInterface.dropTable('tblpessoas');
   }
 };

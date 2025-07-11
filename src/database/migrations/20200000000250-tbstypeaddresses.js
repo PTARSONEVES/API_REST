@@ -4,14 +4,14 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('typemidias', {
+    await queryInterface.createTable('tbstypeaddresses', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      nameMidia: {
+      typeAddress: {
         type: Sequelize.STRING(40),
         allowNull: false,
       },
@@ -29,6 +29,6 @@ module.exports = {
   },
 
   async down (queryInterface/*, Sequelize*/) {
-    await queryInterface.dropTable('typemidias');
+    await queryInterface.dropTable('tbstypeaddresses');
   }
 };

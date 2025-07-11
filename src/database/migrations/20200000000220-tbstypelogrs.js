@@ -4,35 +4,19 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('users', {
+    await queryInterface.createTable('tbstypelogrs', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      passoaid: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: 'tblpessoas',
-          key: 'id',
-        },
-        onDelete: "SET NULL",
-        onUpdate: "CASCADE",
+      typeLogradouro: {
+        type: Sequelize.STRING(3),
+        allowNull: false,
       },
-      usertypeid: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: 'tbsusertypes',
-          key: 'id',
-        },
-        onDelete: "SET NULL",
-        onUpdate: "CASCADE",
-      },
-      password_hash: {
-        type: Sequelize.STRING,
+      nameTypeLogr: {
+        type: Sequelize.STRING(30),
         allowNull: false,
       },
       created_at: {
@@ -48,7 +32,7 @@ module.exports = {
     });
   },
 
-  async down (queryInterface) {
-    await queryInterface.dropTable('users');
+  async down (queryInterface/*, Sequelize*/) {
+    await queryInterface.dropTable('tbstypelogrs');
   }
 };
