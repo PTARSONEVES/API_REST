@@ -84,7 +84,7 @@ export default class User extends Model {
 
     static associate(models) {
     this.hasMany(models.Userfoto, { foreignKey: 'userid'});
-    this.hasMany(models.Email, { foreignKey: 'userid'});
+    this.hasMany(models.Tblemail, { foreignKey: 'userid'});
     this.hasMany(models.Usermidia, { foreignKey: 'userid' });
     this.belongsTo(models.Usertype, { foreignKey: 'usertypeid'});
   }

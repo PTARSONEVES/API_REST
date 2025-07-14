@@ -1,7 +1,9 @@
 import Sequelize from 'sequelize';
 import databaseConfig from '..//config/database';
-import Email from '../models/Email';
+import Tblemail from '../models/Tblemail';
 import Tbscontinente from '../models/Tbscontinente';
+import Tbstipoflat from '../models/flats/Tbstipoflat';
+import Tbsflat from '../models/flats/Tbsflat';
 import Tbspais from '../models/Tbspais';
 import Typemidia from '../models/Typemidia';
 import User from '../models/User';
@@ -22,7 +24,7 @@ import Tbscnae from '../models/cnae/Tbscnae';
 
 
 const models = [
-  Email,
+  Tblemail,
   Tbscontinente,
   Tbspais,
   Tbsbruf,
@@ -34,6 +36,8 @@ const models = [
   Tbsclassecnae,
   Tbssubclassecnae,
   Tbsissitem,
+  Tbstipoflat,
+  Tbsflat,
   Tbsisssubitem,
   Tbsissdnac,
   Typemidia,

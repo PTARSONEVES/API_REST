@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Email extends Model {
+export default class Tblemail extends Model {
   static init(sequelize) {
     super.init({
       email: {

@@ -1,5 +1,5 @@
 //import { password } from "../config/database";
-import Email from "../models/Email";
+import Email from "../models/Tblemail";
 import User from "../models/User";
 import Userfoto from "../models/Userfoto";
 import Usertype from "../models/Usertype";

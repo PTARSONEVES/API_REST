@@ -9,24 +9,41 @@ import cors from 'cors';
 import helmet from 'helmet';
 import consign from 'consign';
 
-import homeRoutes from './src/routes/homeRoutes';
-import userRoutes from './src/routes/userRoutes';
+// Routes
+
+// Token
 import tokenRoutes from './src/routes/tokenRoutes';
+
+// Home
+import homeRoutes from './src/routes/homeRoutes';
+
+// User
+import userRoutes from './src/routes/userRoutes';
 import usertypeRoutes from './src/routes/usertypeRoutes';
+import userfotoRoutes from './src/routes/userfotoRoutes';
+
+// Localização
 import tbscontinenteRoutes from './src/routes/tbscontinenteRoutes';
 import tbsbrufRoutes from './src/routes/tbsbrufRoutes';
+import tbspaisRoutes from './src/routes/tbspaisRoutes';
+import tbsbrmunicipioRoutes from './src/routes/tbsbrmunicipiosRoutes';
+
+// ISS
 import tbsissitemRoutes from './src/routes/tbsissitemRoutes';
 import tbsisssubitemRoutes from './src/routes/tbsisssubitemRoutes';
 import tbsissdnacRoutes from './src/routes/tbsissdnacRoutes';
+
+// CNAE
 import tbscnaeRoutes from './src/routes/cnae/tbscnaeRoutes';
 import tbssecaocnaeRoutes from './src/routes/cnae/tbssecaocnaeRoutes';
 import tbsdivisaocnaeRoutes from './src/routes/cnae/tbsdivisaocnaeRoutes';
 import tbsgrupocnaeRoutes from './src/routes/cnae/tbsgrupocnaeRoutes';
 import tbsclassecnaeRoutes from './src/routes/cnae/tbsclassecnaeRoutes';
 import tbssubclassecnaeRoutes from './src/routes/cnae/tbssubclassecnaeRoutes';
-import tbspaisRoutes from './src/routes/tbspaisRoutes';
-import tbsbrmunicipioRoutes from './src/routes/tbsbrmunicipiosRoutes';
-import userfotoRoutes from './src/routes/userfotoRoutes';
+
+// Ancorar
+
+import tbsflatRoutes from './src/routes/flats/tbsflatRoutes';
 
 const whiteList = [
   'http://localhost:3000',
@@ -84,6 +101,7 @@ class App {
     this.app.use('/paises/', tbspaisRoutes);
     this.app.use('/fotos/', userfotoRoutes);
     this.app.use('/municipios/', tbsbrmunicipioRoutes);
+    this.app.use('/flats/', tbsflatRoutes);
   }
 }
 
