@@ -19,7 +19,7 @@ export default class Tbsflat extends Model {
         type: Sequelize.STRING,
         defaultValue: '',
       },
-      tpflatid: {
+      tbstipoflatid: {
        type: Sequelize.INTEGER,
        allowNull: true,
       },
@@ -31,7 +31,7 @@ export default class Tbsflat extends Model {
     return this;
   }
     static associate(models) {
-    this.belongsTo(models.Tbstipoflat), { foreignKey: 'tpflatid'};
+    this.belongsTo(models.Tbstipoflat), { foreignKey: {name: 'tbstipoflatid',}};
   }
 
 }

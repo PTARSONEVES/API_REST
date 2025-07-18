@@ -28,7 +28,7 @@ module.exports = {
         type: Sequelize.STRING(2),
         allowNull: false,
       },
-      tpflatid: {
+      tbstipoflatid: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {

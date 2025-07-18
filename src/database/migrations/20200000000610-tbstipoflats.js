@@ -20,6 +20,26 @@ module.exports = {
         type: Sequelize.INTEGER(2),
         allowNull: false,
       },
+      salasflat: {
+        type: Sequelize.INTEGER(2),
+        allowNull: false,
+      },
+      varandasflat: {
+        type: Sequelize.INTEGER(2),
+        allowNull: false,
+      },
+      wcsflat: {
+        type: Sequelize.INTEGER(2),
+        allowNull: false,
+      },
+      cozinhasflat: {
+        type: Sequelize.INTEGER(2),
+        allowNull: false,
+      },
+      garagensflat: {
+        type: Sequelize.INTEGER(2),
+        allowNull: false,
+      },
       created_at: {
         allowNull: false,
         defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),

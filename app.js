@@ -101,7 +101,7 @@ class App {
     this.app.use('/paises/', tbspaisRoutes);
     this.app.use('/fotos/', userfotoRoutes);
     this.app.use('/municipios/', tbsbrmunicipioRoutes);
-    this.app.use('/flats/', tbsflatRoutes);
+    this.app.use('/tbsflats/', tbsflatRoutes);
   }
 }
 

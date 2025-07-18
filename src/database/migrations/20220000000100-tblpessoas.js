@@ -27,11 +27,13 @@ module.exports = {
       },
       cpfpessoa: {
         type: Sequelize.STRING(11),
-        allowNull: false,
+        allowNull: true,
+        defaultValue: null,
       },
       cnpjpessoa: {
         type: Sequelize.STRING(14),
-        allowNull: false,
+        allowNull: true,
+        defaultValue: null,
       },
       nascpessoa: {
         type: Sequelize.DATE,

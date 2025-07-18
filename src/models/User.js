@@ -6,48 +6,6 @@ export default class User extends Model {
   static init(sequelize) {
     super.init(
       {
-        name: {
-          type: Sequelize.STRING,
-          defaultValue: '',
-          validate: {
-            len: {
-              args: [3, 50],
-              msg: 'BACK - Campo nome deve ter entre 3 e 50 caracteres',
-            },
-          },
-        },
-        lastname: {
-          type: Sequelize.STRING,
-          defaultValue: '',
-          validate: {
-            len: {
-              args: [3, 50],
-              msg: 'BACK - Campo sobrenome deve ter entre 3 e 50 caracteres',
-            },
-          },
-        },
-        alias: {
-          type: Sequelize.STRING,
-          defaultValue: '',
-          validate: {
-            len: {
-              args: [3, 50],
-              msg: 'BACK - Campo codinome deve ter entre 3 e 50 caracteres',
-            },
-          },
-        },
-        email: {
-          type: Sequelize.STRING,
-          defaultValue: '',
-          unique: {
-            msg: 'BACK - Email já existe',
-          },
-          validate: {
-            isEmail: {
-              msg: 'BACK - Email inválido',
-            },
-          },
-        },
         password_hash: {
           type: Sequelize.STRING,
           defaultValue: '',
@@ -87,6 +45,7 @@ export default class User extends Model {
     this.hasMany(models.Tblemail, { foreignKey: 'userid'});
     this.hasMany(models.Usermidia, { foreignKey: 'userid' });
     this.belongsTo(models.Usertype, { foreignKey: 'usertypeid'});
+    this.belongsTo(models.Tblpessoa, { foreignKey: 'pessoaid' });
   }
 
 }

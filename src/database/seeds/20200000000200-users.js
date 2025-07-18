@@ -12,24 +12,23 @@ module.exports = {
     await queryInterface.bulkInsert(
       "users", [
         {
-          name: "Paulo",
-          lastname: "Araujo",
-          alias: "ptarsoneves",
-          email: "ptarsoneves@gmail.com",
-          password_hash: bcryptjs.hashSync('detarso', 10),
+          pessoaid: 1,
           usertypeid: 1,
+          password_hash: bcryptjs.hashSync('detarso', 10),
+        },
+        {
+          pessoaid: 2,
+          usertypeid: 2,
+          password_hash: bcryptjs.hashSync('detarso', 10),
         },
     ]);
     for(let i = 0; i < 10; i++){
       await queryInterface.bulkInsert(
         "users", [
           {
-            name: faker.person.firstName(),
-            lastname: faker.person.lastName(),
-            alias: faker.internet.username(),
-            email: faker.internet.email(),
-            password_hash: bcryptjs.hashSync('detarso',10),
+            pessoaid: (i+2),
             usertypeid: Math.ceil(Math.random()*7),
+            password_hash: bcryptjs.hashSync('detarso',10),
           },
       ]);
     }

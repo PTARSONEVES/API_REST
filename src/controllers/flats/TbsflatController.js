@@ -8,11 +8,11 @@ class TbsflatController {
   async index(req, res) {
     try {
       const flats = await Tbsflat.findAll({
-        attributes: ['id', 'flatnome', 'flatbloco', 'flatpiso','flatnum','tpflatid'],
+        attributes: ['id', 'flatnome', 'flatbloco', 'flatpiso','flatnum','tbstipoflatid'],
         order: [['flatbloco', 'ASC'],['flatpiso', 'ASC'],['flatnum', 'ASC']],
         include: [{
           model: Tbstipoflat,
-          attributes: ['id','areaflat', 'quartosflat'],
+          attributes: ['id','areaflat', 'quartosflat','salasflat','varandasflat','wcsflat','cozinhasflat','garagensflat'],
         }]
       });
       return res.json(flats);

@@ -1,8 +1,10 @@
 //import { password } from "../config/database";
-import Email from "../models/Tblemail";
+import Tblpessoa from "../models/Tblpessoa";
+import Tblemail from "../models/Tblemail";
 import User from "../models/User";
 import Userfoto from "../models/Userfoto";
 import Usertype from "../models/Usertype";
+import Tblemail from "../models/Tblemail";
 
 class UserController {
 
@@ -11,20 +13,24 @@ class UserController {
   async index(req, res) {
     try {
       const users = await User.findAll({
-        attributes: ['id', 'name', 'alias', 'email'],
+        attributes: ['id', 'pessoaid', 'usertypeid'],
         order: [['id', 'DESC'], [Userfoto, 'id', 'DESC']],
         include: [{
           model: Userfoto,
           attributes: ['url', 'id', 'filename']
         },
         {
-          model: Usertype,
-          attributes: ['id', 'typeuser']
+          model: Tblpessoa,
+          attributes: ['id', 'nomepessoa', 'cpfpessoa', 'cnpjpessoa', 'nascpessoa'],
+          include: [{
+            model: Tblemail,
+            attributes: ['id', 'email', 'confirmed']
+          }]
         },
         {
-          model: Email,
-          attributes: ['id', 'email', 'confirmed']
-        }]
+          model: Usertype,
+          attributes: ['id', 'typeuser']
+        }],
       });
       return res.json(users);
     } catch(e) {
@@ -39,20 +45,24 @@ class UserController {
   async show(req, res) {
     try {
       const user = await User.findByPk(req.userId, {
-        attributes: ['id', 'name', 'alias', 'email'],
+        attributes: ['id', 'pessoaid', 'usertypeid'],
         order: [['id', 'DESC'], [Userfoto, 'id', 'DESC']],
         include: [{
           model: Userfoto,
           attributes: ['url', 'id', 'filename']
         },
         {
-          model: Usertype,
-          attributes: ['id', 'typeuser']
+          model: Tblpessoa,
+          attributes: ['id', 'nomepessoa', 'cpfpessoa', 'cnpjpessoa', 'nascpessoa'],
+          include: [{
+            model: Tblemail,
+            attributes: ['id', 'email', 'confirmed']
+          }]
         },
         {
-          model: Email,
-          attributes: ['id', 'email', 'confirmed']
-        }]
+          model: Usertype,
+          attributes: ['id', 'typeuser']
+        }],
       });
       return res.json(user);
     } catch(e) {
@@ -68,7 +78,7 @@ class UserController {
   async store(req, res) {
     try {
       const novoUser = await User.create(req.body);
-      const { id, name, lastname, alias, email, usertypeid } = novoUser;
+      const { id, pessoaid, usertypeid } = novoUser;
       return res.json({ id, name, lastname, alias, email, usertypeid });
     } catch (e) {
       res.status(400).json({
@@ -90,8 +100,8 @@ class UserController {
       }
 
       const novosDados = await user.update(req.body);
-      const { id, name, lastname, alias, email, usertypeid } = novosDados;
-      return res.json({ id, name, lastname, alias, email, usertypeid });
+      const { id, pessoaid, usertypeid } = novosDados;
+      return res.json({ id, pessoaid, usertypeid });
     } catch (e) {
       console.log(e);
       return res.status(400).json({

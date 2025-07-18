@@ -13,6 +13,31 @@ export default class Tbstipoflat extends Model {
         defaultValue: 1,
         allowNull: false,
       },
+      salasflat: {
+        type: Sequelize.INTEGER,
+        defaultValue: 1,
+        allowNull: false,
+      },
+      varandasflat: {
+        type: Sequelize.INTEGER,
+        defaultValue: 1,
+        allowNull: false,
+      },
+      wcsflat: {
+        type: Sequelize.INTEGER,
+        defaultValue: 1,
+        allowNull: false,
+      },
+      cozinhasflat: {
+        type: Sequelize.INTEGER,
+        defaultValue: 1,
+        allowNull: false,
+      },
+      garagensflat: {
+        type: Sequelize.INTEGER,
+        defaultValue: 1,
+        allowNull: false,
+      },
     }, {
       sequelize,
     });
