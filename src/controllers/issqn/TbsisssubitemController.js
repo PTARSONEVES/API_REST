@@ -1,5 +1,5 @@
-import Tbsisssubitem from '../models/Tbsisssubitem';
-import Tbsissitem from '../models/Tbsissitem';
+import Tbsisssubitem from '../../models/issqn/Tbsisssubitem';
+import Tbsissitem from '../../models/issqn/Tbsissitem';
 
 class TbsisssubitemController {
 

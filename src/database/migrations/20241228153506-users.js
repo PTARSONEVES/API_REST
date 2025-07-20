@@ -13,7 +13,7 @@ module.exports = {
       },
       passoaid: {
         type: Sequelize.INTEGER,
-        allowNull: true,
+        allowNull: false,
         references: {
           model: 'tblpessoas',
           key: 'id',

@@ -1,13 +1,13 @@
-import Tbspais from "../models/Tbspais";
+import Tbscontinente from "../../models/localizacao/Tbscontinente";
 
-class TbspaisController {
+class TbscontinenteController {
 
   // Método Index
 
   async index(req, res) {
     try {
-      const paises = await Tbspais.findAll();
-      return res.json(paises);
+      const continentes = await Tbscontinente.findAll();
+      return res.json(continentes);
     } catch {
       return res.json(null);
     }
@@ -17,8 +17,8 @@ class TbspaisController {
 
   async show(req, res) {
     try {
-      const pais = await Tbspais.findByPk(req.params.id);
-      return res.json(pais);
+      const continente = await Tbscontinente.findByPk(req.params.id);
+      return res.json(continente);
     } catch {
       return res.json(null);
     }
@@ -29,8 +29,8 @@ class TbspaisController {
 
   async store(req, res) {
     try {
-      const novopais = await Tbspais.create(req.body);
-      res.json(novopais);
+      const novocontinente = await Tbscontinente.create(req.body);
+      res.json(novocontinente);
     } catch (e) {
       res.status(400).json({
         errors: e.errors.map((err) => err.message),
@@ -48,15 +48,15 @@ class TbspaisController {
         });
       }
 
-      const pais = await Tbspais.findByPk(req.params.id);
+      const continente = await Tbscontinente.findByPk(req.params.id);
 
-      if (!pais) {
+      if (!continente) {
         return res.status(400).json({
-          errors: ['BACK - pais não existe.'],
+          errors: ['BACK - Continente não existe.'],
         });
       }
 
-      const novosDados = await Tbspais.update(req.body);
+      const novosDados = await Tbscontinente.update(req.body);
 
       return res.json(novosDados);
 
@@ -77,17 +77,17 @@ class TbspaisController {
         });
       }
 
-      const pais = await Tbspais.findByPk(req.params.id);
+      const continente = await Tbscontinente.findByPk(req.params.id);
 
-      if (!pais) {
+      if (!continente) {
         return res.status(400).json({
-          errors: ['BACK - pais não existe.'],
+          errors: ['BACK - Continente não existe.'],
         });
       }
 
-      await Tbspais.destroy();
+      await Tbscontinente.destroy();
 
-      return res.json(pais);
+      return res.json(continente);
 
     } catch (e) {
       return res.status(400).json({
@@ -99,4 +99,4 @@ class TbspaisController {
 
 }
 
-export default new TbspaisController();
+export default new TbscontinenteController();

@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import UsertypeController from '../controllers/UsertypeController';
+import UsertypeController from '../../controllers/user/UsertypeController';
 
-import loginRequired from '../middlewares/loginRequired';
+import loginRequired from '../../middlewares/loginRequired';
 
 const router = new Router();
 

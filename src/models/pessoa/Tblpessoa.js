@@ -13,6 +13,10 @@ export default class Tblpessoa extends Model {
           },
         },
       },
+      tbspessoatipoid: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
       cpfpessoa: {
         type: Sequelize.STRING,
         defaultValue: null,
@@ -37,7 +41,8 @@ export default class Tblpessoa extends Model {
         type: Sequelize.DATE,
         allowNull: true,
       },
-    }, {
+    },
+    {
       sequelize,
       underscored: false,
     });
@@ -46,7 +51,18 @@ export default class Tblpessoa extends Model {
   }
 
     static associate(models) {
-    this.belongsTo(models.Tbspessoatipo), { foreignKey: 'pessoatipoid', as: 'pessoatipo' };
+    this.belongsTo(models.Tbspessoatipo, {
+      foreignKey: 'pessoatipoid',
+      as: 'tipopessoa'
+    });
+//    this.hasMany(models.Tblemail), {
+//      as: 'emails',
+//      foreignKey: 'pessoaid'
+//    };
+//    this.hasMany(models.User), {
+//      as: 'usuarios',
+//      foreignKey: 'pessoaid'
+//    };
   }
 
 }

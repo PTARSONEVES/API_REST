@@ -1,4 +1,4 @@
-import Usertype from "../models/Usertype";
+import Usertype from "../../models/user/Usertype";
 
 class UsertypeController {
 

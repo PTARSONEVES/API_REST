@@ -1,6 +1,6 @@
-import Tbspais from "../models/Tbspais";
-import Tbsbruf from "../models/Tbsbruf";
-import Tbscontinente from "../models/Tbscontinente";
+import Tbspais from "../../models/localizacao/Tbspais";
+import Tbsbruf from "../../models/localizacao/Tbsbruf";
+import Tbscontinente from "../../models/localizacao/Tbscontinente";
 
 class TbsbrufController {
 

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import TbsbrufController from '../controllers/TbsbrufController';
+import TbsbrufController from '../../controllers/localizacao/TbsbrufController';
 
 //import loginRequired from '../middlewares/loginRequired';
 

@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import TbsisssubitemController from '../controllers/TbsisssubitemController';
+import TbsisssubitemController from '../../controllers/issqn/TbsisssubitemController';
 
 const router = new Router();
 

@@ -1,13 +1,13 @@
-import Tbscontinente from "../models/Tbscontinente";
+import Tbspais from "../../models/localizacao/Tbspais";
 
-class TbscontinenteController {
+class TbspaisController {
 
   // Método Index
 
   async index(req, res) {
     try {
-      const continentes = await Tbscontinente.findAll();
-      return res.json(continentes);
+      const paises = await Tbspais.findAll();
+      return res.json(paises);
     } catch {
       return res.json(null);
     }
@@ -17,8 +17,8 @@ class TbscontinenteController {
 
   async show(req, res) {
     try {
-      const continente = await Tbscontinente.findByPk(req.params.id);
-      return res.json(continente);
+      const pais = await Tbspais.findByPk(req.params.id);
+      return res.json(pais);
     } catch {
       return res.json(null);
     }
@@ -29,8 +29,8 @@ class TbscontinenteController {
 
   async store(req, res) {
     try {
-      const novocontinente = await Tbscontinente.create(req.body);
-      res.json(novocontinente);
+      const novopais = await Tbspais.create(req.body);
+      res.json(novopais);
     } catch (e) {
       res.status(400).json({
         errors: e.errors.map((err) => err.message),
@@ -48,15 +48,15 @@ class TbscontinenteController {
         });
       }
 
-      const continente = await Tbscontinente.findByPk(req.params.id);
+      const pais = await Tbspais.findByPk(req.params.id);
 
-      if (!continente) {
+      if (!pais) {
         return res.status(400).json({
-          errors: ['BACK - Continente não existe.'],
+          errors: ['BACK - pais não existe.'],
         });
       }
 
-      const novosDados = await Tbscontinente.update(req.body);
+      const novosDados = await Tbspais.update(req.body);
 
       return res.json(novosDados);
 
@@ -77,17 +77,17 @@ class TbscontinenteController {
         });
       }
 
-      const continente = await Tbscontinente.findByPk(req.params.id);
+      const pais = await Tbspais.findByPk(req.params.id);
 
-      if (!continente) {
+      if (!pais) {
         return res.status(400).json({
-          errors: ['BACK - Continente não existe.'],
+          errors: ['BACK - pais não existe.'],
         });
       }
 
-      await Tbscontinente.destroy();
+      await Tbspais.destroy();
 
-      return res.json(continente);
+      return res.json(pais);
 
     } catch (e) {
       return res.status(400).json({
@@ -99,4 +99,4 @@ class TbscontinenteController {
 
 }
 
-export default new TbscontinenteController();
+export default new TbspaisController();

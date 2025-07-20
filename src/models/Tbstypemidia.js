@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Typemidia extends Model {
+export default class Tbstypemidia extends Model {
   static init(sequelize) {
     super.init({
       namemidia: {
@@ -19,7 +19,10 @@ export default class Typemidia extends Model {
   }
 
  static associate(models) {
-    this.hasMany(models.Usermidia, { foreignKey: 'typemidiaid'});
+    this.hasMany(models.Usermidia, {
+      foreignKey: 'typemidiaid',
+      as: 'midias'
+    });
   }
 
 }

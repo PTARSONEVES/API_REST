@@ -18,20 +18,20 @@ import tokenRoutes from './src/routes/tokenRoutes';
 import homeRoutes from './src/routes/homeRoutes';
 
 // User
-import userRoutes from './src/routes/userRoutes';
-import usertypeRoutes from './src/routes/usertypeRoutes';
-import userfotoRoutes from './src/routes/userfotoRoutes';
+import userRoutes from './src/routes/user/userRoutes';
+import usertypeRoutes from './src/routes/user/usertypeRoutes';
+import userfotoRoutes from './src/routes/user/userfotoRoutes';
 
 // Localização
-import tbscontinenteRoutes from './src/routes/tbscontinenteRoutes';
-import tbsbrufRoutes from './src/routes/tbsbrufRoutes';
-import tbspaisRoutes from './src/routes/tbspaisRoutes';
-import tbsbrmunicipioRoutes from './src/routes/tbsbrmunicipiosRoutes';
+import tbscontinenteRoutes from './src/routes/localizacao/tbscontinenteRoutes';
+import tbsbrufRoutes from './src/routes/localizacao/tbsbrufRoutes';
+import tbspaisRoutes from './src/routes/localizacao/tbspaisRoutes';
+import tbsbrmunicipioRoutes from './src/routes/localizacao/tbsbrmunicipioRoutes';
 
-// ISS
-import tbsissitemRoutes from './src/routes/tbsissitemRoutes';
-import tbsisssubitemRoutes from './src/routes/tbsisssubitemRoutes';
-import tbsissdnacRoutes from './src/routes/tbsissdnacRoutes';
+// ISSQN
+import tbsissitemRoutes from './src/routes/issqn/tbsissitemRoutes';
+import tbsisssubitemRoutes from './src/routes/issqn/tbsisssubitemRoutes';
+import tbsissdnacRoutes from './src/routes/issqn/tbsissdnacRoutes';
 
 // CNAE
 import tbscnaeRoutes from './src/routes/cnae/tbscnaeRoutes';

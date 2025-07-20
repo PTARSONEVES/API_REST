@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import TbsissdnacController from '../controllers/TbsissdnacController';
+import TbsissdnacController from '../../controllers/issqn/TbsissdnacController';
 
 const router = new Router();
 

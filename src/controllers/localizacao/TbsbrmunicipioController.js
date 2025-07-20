@@ -1,7 +1,7 @@
-import Tbsbrmunicipio from "../models/Tbsbrmunicipio";
-import Tbspais from "../models/Tbspais";
-import Tbsbruf from "../models/Tbsbruf";
-import Tbscontinente from "../models/Tbscontinente";
+import Tbsbrmunicipio from "../../models/localizacao/Tbsbrmunicipio";
+import Tbspais from "../../models/localizacao/Tbspais";
+import Tbsbruf from "../../models/localizacao/Tbsbruf";
+import Tbscontinente from "../../models/localizacao/Tbscontinente";
 
 class TbsbrmunicipioController {
 

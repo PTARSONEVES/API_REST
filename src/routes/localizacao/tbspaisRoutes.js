@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import TbspaisController from '../controllers/TbspaisController';
+import TbspaisController from '../../controllers/localizacao/TbspaisController';
 
-import loginRequired from '../middlewares/loginRequired';
+import loginRequired from '../../middlewares/loginRequired';
 
 const router = new Router();
 

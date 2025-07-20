@@ -1,10 +1,9 @@
 //import { password } from "../config/database";
-import Tblpessoa from "../models/Tblpessoa";
-import Tblemail from "../models/Tblemail";
-import User from "../models/User";
-import Userfoto from "../models/Userfoto";
-import Usertype from "../models/Usertype";
-import Tblemail from "../models/Tblemail";
+import Tblpessoa from "../../models/pessoa/Tblpessoa";
+import Tblemail from "../../models/pessoa/Tblemail";
+import User from "../../models/user/User";
+import Userfoto from "../../models/user/Userfoto";
+import Usertype from "../../models/user/Usertype";
 
 class UserController {
 

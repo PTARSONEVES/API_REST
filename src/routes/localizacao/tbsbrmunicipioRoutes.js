@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import TbsbrmunicipioController from '../controllers/TbsbrmunicipioController';
+import TbsbrmunicipioController from '../../controllers/localizacao/TbsbrmunicipioController';
 
 //import loginRequired from '../middlewares/loginRequired';
 

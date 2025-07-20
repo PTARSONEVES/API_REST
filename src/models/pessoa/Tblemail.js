@@ -21,6 +21,7 @@ export default class Tblemail extends Model {
       },
     }, {
       sequelize,
+      tablename: 'tblemails',
       underscored: false,
     });
 
@@ -28,7 +29,10 @@ export default class Tblemail extends Model {
   }
 
     static associate(models) {
-    this.belongsTo(models.User), { foreignKey: 'emailid'};
+    this.belongsTo(models.Tblpessoa), {
+      foreignKey: 'pessoaid',
+      as: 'pessoa'
+    };
   }
 
 }

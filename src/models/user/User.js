@@ -6,6 +6,14 @@ export default class User extends Model {
   static init(sequelize) {
     super.init(
       {
+        pessoaid: {
+          type: Sequelize.INTEGER,
+          defaultValue: 1,
+        },
+        usertypeid: {
+          type: Sequelize.INTEGER,
+          defaultValue: 1,
+        },
         password_hash: {
           type: Sequelize.STRING,
           defaultValue: '',
@@ -41,11 +49,10 @@ export default class User extends Model {
   }
 
     static associate(models) {
-    this.hasMany(models.Userfoto, { foreignKey: 'userid'});
-    this.hasMany(models.Tblemail, { foreignKey: 'userid'});
-    this.hasMany(models.Usermidia, { foreignKey: 'userid' });
-    this.belongsTo(models.Usertype, { foreignKey: 'usertypeid'});
     this.belongsTo(models.Tblpessoa, { foreignKey: 'pessoaid' });
+    this.hasMany(models.Userfoto, { foreignKey: 'userid'});
+    this.hasMany(models.Usermidia, { foreignKey: 'userid' });
+    this.hasMany(models.Usertype, { foreignKey: 'userid'});
   }
 
 }

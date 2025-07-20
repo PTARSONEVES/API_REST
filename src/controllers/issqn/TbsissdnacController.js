@@ -1,6 +1,6 @@
-import Tbsissdnac from '../models/Tbsissdnac';
-import Tbsissitem from '../models/Tbsissitem';
-import Tbsisssubitem from '../models/Tbsisssubitem';
+import Tbsissdnac from '../../models/issqn/Tbsissdnac';
+import Tbsissitem from '../../models/issqn/Tbsissitem';
+import Tbsisssubitem from '../../models/issqn/Tbsisssubitem';
 import { Op } from 'sequelize';
 
 class TbsissdnacController {

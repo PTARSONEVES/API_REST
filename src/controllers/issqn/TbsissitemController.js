@@ -1,4 +1,4 @@
-import Tbsissitem from '../models/Tbsissitem';
+import Tbsissitem from '../../models/issqn/Tbsissitem';
 
 class TbsissitemController {
 

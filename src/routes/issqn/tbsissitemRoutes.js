@@ -1,5 +1,5 @@
 import { Router } from "express";
-import TbsissitemController from '../controllers/TbsissitemController';
+import TbsissitemController from '../../controllers/issqn/TbsissitemController';
 
 const router = new Router();
 
