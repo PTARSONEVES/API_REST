@@ -52,17 +52,18 @@ export default class Tblpessoa extends Model {
 
     static associate(models) {
     this.belongsTo(models.Tbspessoatipo, {
-      foreignKey: 'pessoatipoid',
-      as: 'tipopessoa'
+      foreignKey: 'tbspessoatipoid'
     });
-//    this.hasMany(models.Tblemail), {
-//      as: 'emails',
-//      foreignKey: 'pessoaid'
-//    };
-//    this.hasMany(models.User), {
-//      as: 'usuarios',
-//      foreignKey: 'pessoaid'
-//    };
+    this.hasMany(models.Tblemail), {
+      as: 'emails',
+      foreignKey: 'tblpessoaid'
+    };
+    this.hasMany(models.Tblpessoamidia, {
+      foreignKey: 'tblpessoaid',
+    });
+    this.hasMany(models.User), {
+      foreignKey: 'tblpessoaid'
+    };
   }
 
 }

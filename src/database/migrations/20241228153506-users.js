@@ -11,9 +11,9 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      passoaid: {
+      tblpessoaid: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'tblpessoas',
           key: 'id',

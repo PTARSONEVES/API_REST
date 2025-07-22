@@ -9,12 +9,12 @@ module.exports = {
     await queryInterface.bulkInsert(
       "tblemails", [
         {
-          pessoaid: 1,
+          tblpessoaid: 1,
           email: "ptarsoneves@gmail.com",
           confirmed: "1",
         },
         {
-          pessoaid: 2,
+          tblpessoaid: 2,
           email: "salete.taraujo@gmail.com",
           confirmed: "1",
         },
@@ -23,7 +23,7 @@ module.exports = {
       await queryInterface.bulkInsert(
         "tblemails", [
           {
-            pessoaid: i+2,
+            tblpessoaid: i+2,
             email: faker.internet.email(),
             confirmed: "0",
           },

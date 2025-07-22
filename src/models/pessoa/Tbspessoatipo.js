@@ -17,8 +17,7 @@ export default class Tbspessoatipo extends Model {
 
   static associate(models) {
     this.hasMany(models.Tblpessoa, {
-      foreignKey: 'pessoatipoid',
-      as: 'pessoas'
+      foreignKey: 'tbspessoatipoid'
     });
   }
 

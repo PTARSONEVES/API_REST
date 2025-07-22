@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING(200),
         allowNull: false,
       },
-      pessoatipoid: {
+      tbspessoatipoid: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {

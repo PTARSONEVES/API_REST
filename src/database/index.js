@@ -2,7 +2,8 @@ import Sequelize from 'sequelize';
 import databaseConfig from '..//config/database';
 
 //Models
-import Tbstypemidia from '../models/Tbstypemidia';
+// referências
+import Tbstypemidia from '../models/referencias/Tbstypemidia';
 // cnae
 import Tbssecaocnae from '../models/cnae/Tbssecaocnae';
 import Tbsdivisaocnae from '../models/cnae/Tbsdivisaocnae';
@@ -25,7 +26,8 @@ import Tbsbrmunicipio from '../models/localizacao/Tbsbrmunicipio';
 //pessoa
 import Tbspessoatipo from '../models/pessoa/Tbspessoatipo';
 import Tblpessoa from '../models/pessoa/Tblpessoa';
-import Tblemail from '../models/pessoa/Tblemail';
+import Tblemail from '../models/pessoa/Tblemail'
+import Tblpessoamidia from '../models/pessoa/Tblpessoamidia';
 //user
 import User from '../models/user/User';
 import Userfoto from '../models/user/Userfoto';
@@ -37,6 +39,7 @@ const models = [
   Tbspessoatipo,
   Tblpessoa,
   Tblemail,
+  Tblpessoamidia,
   Tbscontinente,
   Tbspais,
   Tbsbruf,

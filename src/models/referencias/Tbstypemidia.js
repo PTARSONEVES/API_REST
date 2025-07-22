@@ -19,9 +19,8 @@ export default class Tbstypemidia extends Model {
   }
 
  static associate(models) {
-    this.hasMany(models.Usermidia, {
-      foreignKey: 'typemidiaid',
-      as: 'midias'
+    this.hasMany(models.Tblpessoamidia, {
+      foreignKey: 'tbstypemidiaid',
     });
   }
 

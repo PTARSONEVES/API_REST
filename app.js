@@ -17,6 +17,9 @@ import tokenRoutes from './src/routes/tokenRoutes';
 // Home
 import homeRoutes from './src/routes/homeRoutes';
 
+// Pessoa
+import tblpessoaRoutes from './src/routes/pessoa/tblpessoaRoutes';
+
 // User
 import userRoutes from './src/routes/user/userRoutes';
 import usertypeRoutes from './src/routes/user/usertypeRoutes';
@@ -84,6 +87,7 @@ class App {
 
   routes() {
     this.app.use('/', homeRoutes);
+    this.app.use('/pessoas/', tblpessoaRoutes);
     this.app.use('/users/', userRoutes);
     this.app.use('/tokens/', tokenRoutes);
     this.app.use('/usertypes/', usertypeRoutes);

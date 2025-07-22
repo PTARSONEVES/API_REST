@@ -11,7 +11,7 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      nameMidia: {
+      namemidia: {
         type: Sequelize.STRING(40),
         allowNull: false,
       },

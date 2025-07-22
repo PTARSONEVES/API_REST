@@ -3,6 +3,10 @@ import Sequelize, { Model } from 'sequelize';
 export default class Tblemail extends Model {
   static init(sequelize) {
     super.init({
+      tblpessoaid: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+      },
       email: {
         type: Sequelize.STRING,
         defaultValue: '',
@@ -21,7 +25,6 @@ export default class Tblemail extends Model {
       },
     }, {
       sequelize,
-      tablename: 'tblemails',
       underscored: false,
     });
 
@@ -30,7 +33,7 @@ export default class Tblemail extends Model {
 
     static associate(models) {
     this.belongsTo(models.Tblpessoa), {
-      foreignKey: 'pessoaid',
+      foreignKey: 'tblpessoaid',
       as: 'pessoa'
     };
   }

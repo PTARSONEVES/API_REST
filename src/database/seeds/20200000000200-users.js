@@ -12,12 +12,12 @@ module.exports = {
     await queryInterface.bulkInsert(
       "users", [
         {
-          pessoaid: 1,
+          tblpessoaid: 1,
           usertypeid: 1,
           password_hash: bcryptjs.hashSync('detarso', 10),
         },
         {
-          pessoaid: 2,
+          tblpessoaid: 2,
           usertypeid: 2,
           password_hash: bcryptjs.hashSync('detarso', 10),
         },
@@ -26,7 +26,7 @@ module.exports = {
       await queryInterface.bulkInsert(
         "users", [
           {
-            pessoaid: (i+2),
+            tblpessoaid: (i+2),
             usertypeid: Math.ceil(Math.random()*7),
             password_hash: bcryptjs.hashSync('detarso',10),
           },

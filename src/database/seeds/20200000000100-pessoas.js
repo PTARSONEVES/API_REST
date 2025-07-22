@@ -9,14 +9,14 @@ module.exports = {
       "tblpessoas", [
         {
           nomepessoa: "Paulo de Tarso Neves de Araújo",
-          pessoatipoid: 1,
+          tbspessoatipoid: 1,
           cpfpessoa: "19849290463",
           cnpjpessoa: null,
           nascpessoa: new Date("1959-08-26"),
         },
         {
           nomepessoa: "Salete Torres de Araújo",
-          pessoatipoid: 1,
+          tbspessoatipoid: 1,
           cpfpessoa: "76544117404",
           cnpjpessoa: null,
           nascpessoa: new Date("1970-11-26"),
@@ -27,7 +27,7 @@ module.exports = {
         "tblpessoas", [
           {
             nomepessoa: faker.person.fullName(),
-            pessoatipoid: 1,
+            tbspessoatipoid: 1,
             cpfpessoa: faker.string.numeric(11),
             cnpjpessoa: null,
             nascpessoa: faker.date.birthdate(),

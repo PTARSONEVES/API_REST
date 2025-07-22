@@ -6,7 +6,7 @@ export default class User extends Model {
   static init(sequelize) {
     super.init(
       {
-        pessoaid: {
+        tblpessoaid: {
           type: Sequelize.INTEGER,
           defaultValue: 1,
         },
@@ -49,7 +49,7 @@ export default class User extends Model {
   }
 
     static associate(models) {
-    this.belongsTo(models.Tblpessoa, { foreignKey: 'pessoaid' });
+    this.belongsTo(models.Tblpessoa, { foreignKey: 'tblpessoaid' });
     this.hasMany(models.Userfoto, { foreignKey: 'userid'});
     this.hasMany(models.Usermidia, { foreignKey: 'userid' });
     this.hasMany(models.Usertype, { foreignKey: 'userid'});
