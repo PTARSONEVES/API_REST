@@ -101,22 +101,22 @@ class TblpessoaController {
         attributes: ['id', 'nomepessoa','tbspessoatipoid', 'cpfpessoa', 'cnpjpessoa', 'nascpessoa'],
         order: [['id', 'ASC']],
         include: [
-//          {
-//            attributes: ['id', 'email', 'confirmed'],
-//            model: Tblemail,
-//          },
-//          {
-//            attributes: ['id', 'tipopessoa'],
-//            model: Tbspessoatipo,
-//          },
           {
-            model: Tblpessoamidia,
-            attributes: ['id', 'tblpessoaid', 'tbstypemidiaid'],
-            include: [{
-              model: Tbstypemidia,
-              attributes: ['id', 'typemidia']
-            }]
+            attributes: ['id', 'email', 'confirmed'],
+            model: Tblemail,
           },
+          {
+            attributes: ['id', 'tipopessoa'],
+            model: Tbspessoatipo,
+         },
+//        {
+//            model: Tblpessoamidia,
+//           attributes: ['id', 'tblpessoaid', 'tbstypemidiaid'],
+//            include: [{
+//              model: Tbstypemidia,
+//              attributes: ['id', 'typemidia']
+//            }]
+//          },
 //          {
 //            attributes: ['id', 'tblpessoaid', 'usertypeid'],
 //            model: 'User',
