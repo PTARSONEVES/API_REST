@@ -18,11 +18,11 @@ export default class Tbstypemidia extends Model {
     });
   }
 
- static associate(models) {
-    this.hasMany(models.Tblpessoamidia, {
-      foreignKey: 'tbstypemidiaid',
-    });
-  }
+// static associate(models) {
+//    this.hasMany(models.Tblpessoamidia, {
+//      foreignKey: 'tbstypemidiaid',
+//    });
+//  }
 
 }
 

@@ -55,11 +55,11 @@ export default class Tblpessoa extends Model {
       foreignKey: 'tbspessoatipoid'
     });
     this.hasMany(models.Tblemail), {
-      as: 'emails',
       foreignKey: 'tblpessoaid'
     };
     this.hasMany(models.Tblpessoamidia, {
-      foreignKey: 'tblpessoaid',
+      foreignKey: ['tblpessoaid','tbstypemidiaid'],
+      sourceKey: 'id',
     });
     this.hasMany(models.User), {
       foreignKey: 'tblpessoaid'
