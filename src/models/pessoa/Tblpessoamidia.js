@@ -7,11 +7,11 @@ export default class Tblpessoamidia extends Model {
       {
         tblpessoaid: {
           type: Sequelize.INTEGER,
-          defaultValue: 1,
+          defaultValue: null,
         },
         tbstypemidiaid: {
           type: Sequelize.INTEGER,
-          defaultValue: 1,
+          defaultValue: null,
         },
      },
       {

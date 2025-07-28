@@ -41,6 +41,12 @@ module.exports = {
         allowNull: false,
         type: "TIMESTAMP",
       },
+    })
+    .then(() => {
+      queryInterface.addIndex('tblpessoamidias', ['tblpessoaid', 'tbstypemidiaid'], {
+        name: 'idx_tblpessoamidias_tblpessoaid_tbstypemidiaid',
+        unique: true,
+      });
     });
   },
 
