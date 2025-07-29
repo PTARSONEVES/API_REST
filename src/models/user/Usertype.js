@@ -3,17 +3,7 @@ import Sequelize, { Model } from 'sequelize';
 export default class Usertype extends Model {
   static init(sequelize) {
     super.init({
-      userid: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'User',
-          key: 'id',
-        },
-        onDelete: "SET NULL",
-        onUpdate: "CASCADE",
-      },
-      typeuser: {
+      tipouser: {
         type: Sequelize.STRING,
         defaultValue: '',
         validate: {
@@ -25,6 +15,8 @@ export default class Usertype extends Model {
       },
     }, {
       sequelize,
+      underscored: false,
+      tableName: 'usertypes',
     });
   }
 

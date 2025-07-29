@@ -1,45 +1,48 @@
-import Tblpessoa from "../../models/pessoa/Tblpessoa";
-import Tblemail from "../../models/pessoa/Tblemail";
-import Tbspessoatipo from "../../models/pessoa/Tbspessoatipo";
-import Tblpessoamidia from "../../models/pessoa/Tblpessoamidia";
-import Tbstypemidia from "../../models/referencias/Tbstypemidia";
+import Pessoa from "../../models/pessoa/Pessoa";
+import Email from "../../models/pessoa/Email";
+import Pessoatpo from "../../models/pessoa/Pessoatpo";
+import Midia from "../../models/pessoa/Midia";
+import Midiatpo from "../../models/pessoa/Midiatpo";
+import User from "../../models/user/User";
+import Usertype from "../../models/user/Usertype";
 
-class TblpessoaController {
+class PessoaController {
 
 
   // Método Index
 
   async index(req, res) {
     try {
-/*
-*/
 
-      const pessoas = await Tblpessoa.findAll({
-        attributes: ['id', 'nomepessoa','tbspessoatipoid', 'cpfpessoa', 'cnpjpessoa', 'nascpessoa'],
+      const pessoas = await Pessoa.findAll({
+        attributes: ['id', 'nomepessoa','pessoatpoid', 'cpfpessoa', 'cnpjpessoa', 'nascpessoa'],
         order: [['id', 'ASC']],
         include: [
           {
             attributes: ['id', 'email', 'confirmed'],
-            model: Tblemail,
-            as: 'Tblemails',
+            model: Email,
+            as: 'Emails',
           },
           {
             attributes: ['id', 'tipopessoa'],
-            model: Tbspessoatipo,
+            model: Pessoatpo,
           },
           {
-            model: Tblpessoamidia,
-            attributes: ['id', 'tblpessoaid', 'tbstypemidiaid'],
+            model: Midia,
+            attributes: ['id', 'pessoaid', 'midiatpoid'],
             include: [{
-              model: Tbstypemidia,
-              as: 'Tbstypemidium',
+              model: Midiatpo,
               attributes: ['id', 'namemidia']
             }]
           },
-//          {
-//            attributes: ['id', 'tblpessoaid', 'usertypeid'],
-//            model: 'User',
-//          }
+          {
+            model: User,
+            attributes: ['id', 'pessoaid', 'usertypeid'],
+            include: [{
+              model: Usertype,
+              attributes: ['id', 'tipouser']
+            }],
+          }
         ],
       });
 
@@ -155,4 +158,4 @@ class TblpessoaController {
 */
 }
 
-export default new TblpessoaController();
+export default new PessoaController();

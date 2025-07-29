@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Tbspessoatipo extends Model {
+export default class Pessoatpo extends Model {
   static init(sequelize) {
     super.init({
       tipopessoa: {
@@ -10,17 +10,17 @@ export default class Tbspessoatipo extends Model {
     }, {
       sequelize,
       underscored: false,
-      tableName: 'tbspessoatipos',
+      tableName: 'pessoatpos',
     });
 
     return this;
   }
-
+/*
   static associate(models) {
-    this.hasMany(models.Tblpessoa, {
-      foreignKey: 'tbspessoatipoid'
+    this.hasMany(models.Pessoa, {
+      foreignKey: 'pessoatpoid'
     });
   }
-
+*/
 }
 

@@ -4,32 +4,40 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('tblpessoamidias', {
+    await queryInterface.createTable('tblflats', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      tblpessoaid: {
+      flatid: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
-          model: 'tblpessoas',
+          model: 'tbsflats',
           key: 'id',
         },
         onDelete: "SET NULL",
         onUpdate: "CASCADE",
       },
-      tbstypemidiaid: {
+      pessoaid: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
-          model: 'tbstypemidias',
+          model: 'pessoas',
           key: 'id',
         },
         onDelete: "SET NULL",
         onUpdate: "CASCADE",
+      },
+      flatquartos: {
+        type: Sequelize.INTEGER(1),
+        allowNull: false,
+      },
+      flathospedes: {
+        type: Sequelize.INTEGER(2),
+        allowNull: false,
       },
       created_at: {
         allowNull: false,
@@ -41,16 +49,10 @@ module.exports = {
         allowNull: false,
         type: "TIMESTAMP",
       },
-    })
-    .then(() => {
-      queryInterface.addIndex('tblpessoamidias', ['tblpessoaid', 'tbstypemidiaid'], {
-        name: 'idx_tblpessoamidias_tblpessoaid_tbstypemidiaid',
-        unique: true,
-      });
     });
   },
 
-  async down (queryInterface/*, Sequelize*/) {
-    await queryInterface.dropTable('tblpessoamidias');
+  async down (queryInterface, Sequelize) {
+    await queryInterface.dropTable('tblflats');
   }
 };

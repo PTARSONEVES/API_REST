@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Tbstypemidia extends Model {
+export default class Midiatpo extends Model {
   static init(sequelize) {
     super.init({
       namemidia: {
@@ -16,13 +16,14 @@ export default class Tbstypemidia extends Model {
     }, {
       sequelize,
       underscored: false,
-      tableName: 'tbstypemidias',
+      tableName: 'midiatpos',
     });
   }
 
 // static associate(models) {
-//    this.hasMany(models.Tblpessoamidia, {
-//      foreignKey: 'tbstypemidiaid',
+//    this.hasMany(models.Midia, {
+//      foreignKey: 'midiatpoid',
+//      sourceKey: 'id',
 //    });
 //  }
 

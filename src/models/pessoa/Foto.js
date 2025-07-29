@@ -2,7 +2,7 @@ import Sequelize, { Model } from 'sequelize';
 import appConfig from '../../config/appConfig';
 
 
-export default class Userfoto extends Model {
+export default class Foto extends Model {
   static init(sequelize) {
     super.init({
       originalname: {
@@ -39,14 +39,14 @@ export default class Userfoto extends Model {
         },
       }, {
       sequelize,
-      tableName: 'userfotos',
+      tableName: 'pessoafotos',
     });
 
     return this;
   }
 
   static associate(models) {
-    this.belongsTo(models.User, { foreignKey: 'userid'});
+    this.belongsTo(models.Pessoa, { foreignKey: 'pessoaid'});
   }
 
 }

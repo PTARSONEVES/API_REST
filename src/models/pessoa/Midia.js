@@ -1,15 +1,15 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Tblpessoamidia extends Model {
+export default class Midia extends Model {
 
   static init(sequelize) {
     super.init(
       {
-        tblpessoaid: {
+        pessoaid: {
           type: Sequelize.INTEGER,
           defaultValue: null,
         },
-        tbstypemidiaid: {
+        midiatpoid: {
           type: Sequelize.INTEGER,
           defaultValue: null,
         },
@@ -17,18 +17,18 @@ export default class Tblpessoamidia extends Model {
       {
         sequelize,
         underscored: false,
-        tableName: 'tblpessoamidias',
+        tableName: 'midias',
       },
     );
 
   }
 
  static associate(models) {
-    this.belongsTo(models.Tblpessoa, {
-      foreignKey: 'tblpessoaid',
+    this.belongsTo(models.Pessoa, {
+      foreignKey: 'pessoaid',
     });
-    this.belongsTo(models.Tbstypemidia, {
-      foreignKey: 'tbstypemidiaid',
+    this.belongsTo(models.Midiatpo, {
+      foreignKey: 'midiatpoid',
     });
   }
 }

@@ -1,8 +1,7 @@
 //import { password } from "../config/database";
-import Tblpessoa from "../../models/pessoa/Tblpessoa";
-import Tblemail from "../../models/pessoa/Tblemail";
+import Pessoa from "../../models/pessoa/Pessoa";
+import Email from "../../models/pessoa/Email";
 import User from "../../models/user/User";
-import Userfoto from "../../models/user/Userfoto";
 import Usertype from "../../models/user/Usertype";
 
 class UserController {
@@ -19,10 +18,10 @@ class UserController {
           attributes: ['url', 'id', 'filename']
         },
         {
-          model: Tblpessoa,
+          model: Pessoa,
           attributes: ['id', 'nomepessoa', 'cpfpessoa', 'cnpjpessoa', 'nascpessoa'],
           include: [{
-            model: Tblemail,
+            model: Email,
             attributes: ['id', 'email', 'confirmed']
           }]
         },
@@ -51,10 +50,10 @@ class UserController {
           attributes: ['url', 'id', 'filename']
         },
         {
-          model: Tblpessoa,
+          model: Pessoa,
           attributes: ['id', 'nomepessoa', 'cpfpessoa', 'cnpjpessoa', 'nascpessoa'],
           include: [{
-            model: Tblemail,
+            model: Email,
             attributes: ['id', 'email', 'confirmed']
           }]
         },

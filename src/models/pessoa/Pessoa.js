@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Tblpessoa extends Model {
+export default class Pessoa extends Model {
   static init(sequelize) {
     super.init({
       nomepessoa: {
@@ -13,7 +13,7 @@ export default class Tblpessoa extends Model {
           },
         },
       },
-      tbspessoatipoid: {
+      pessoatpoid: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
@@ -45,25 +45,29 @@ export default class Tblpessoa extends Model {
     {
       sequelize,
       underscored: false,
-      tableName: 'tblpessoas',
+      tableName: 'pessoas',
     });
 
     return this;
   }
 
-    static associate(models) {
-    this.belongsTo(models.Tbspessoatipo, {
-      foreignKey: 'tbspessoatipoid'
+  static associate(models) {
+    this.belongsTo(models.Pessoatpo, {
+      foreignKey: 'pessoatpoid',
     });
-    this.hasMany(models.Tblemail), {
-      foreignKey: 'tblpessoaid'
+    models.Pessoatpo.hasMany(this, {
+      foreignKey: 'pessoatpoid',
+      sourceKey: 'id',
+    });
+    this.hasMany(models.Email), {
+      foreignKey: 'pessoaid',
     };
-    this.hasMany(models.Tblpessoamidia, {
-      foreignKey: ['tblpessoaid','tbstypemidiaid'],
+    this.hasMany(models.Midia, {
+      foreignKey: ['pessoaid','midiatpoid'],
       sourceKey: 'id',
     });
     this.hasMany(models.User), {
-      foreignKey: 'tblpessoaid'
+      foreignKey: 'pessoaid',
     };
   }
 

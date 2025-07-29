@@ -12,25 +12,40 @@ module.exports = {
     await queryInterface.bulkInsert(
       "users", [
         {
-          tblpessoaid: 1,
+          pessoaid: 1,
           usertypeid: 1,
           password_hash: bcryptjs.hashSync('detarso', 10),
         },
         {
-          tblpessoaid: 2,
+          pessoaid: 2,
+          usertypeid: 1,
+          password_hash: bcryptjs.hashSync('detarso', 10),
+        },
+        {
+          pessoaid: 2,
           usertypeid: 2,
           password_hash: bcryptjs.hashSync('detarso', 10),
         },
     ]);
-    for(let i = 0; i < 10; i++){
-      await queryInterface.bulkInsert(
-        "users", [
-          {
-            tblpessoaid: (i+2),
-            usertypeid: Math.ceil(Math.random()*7),
-            password_hash: bcryptjs.hashSync('detarso',10),
-          },
-      ]);
+    console.log("Createds Paulo and Sal");
+    for(let i = 3; i < 13; i++){
+      const tpuser = Math.ceil(Math.random()*10);
+      if(tpuser === 0) {
+        continue;
+      } else {
+        if(tpuser === 10) {tpuser=9;}
+        for(let j = 1; j < tpuser + 1; j++) {
+          // eslint-disable-next-line no-await-in-loop
+          await queryInterface.bulkInsert(
+            "users", [
+              {
+                pessoaid: i,
+                usertypeid: j,
+                password_hash: bcryptjs.hashSync('detarso', 10),
+              },
+          ]);
+        }
+      };
     }
   },
 

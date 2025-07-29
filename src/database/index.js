@@ -2,8 +2,6 @@ import Sequelize from 'sequelize';
 import databaseConfig from '..//config/database';
 
 //Models
-// referências
-import Tbstypemidia from '../models/referencias/Tbstypemidia';
 // cnae
 import Tbssecaocnae from '../models/cnae/Tbssecaocnae';
 import Tbsdivisaocnae from '../models/cnae/Tbsdivisaocnae';
@@ -24,22 +22,24 @@ import Tbspais from '../models/localizacao/Tbspais';
 import Tbsbruf from '../models/localizacao/Tbsbruf';
 import Tbsbrmunicipio from '../models/localizacao/Tbsbrmunicipio';
 //pessoa
-import Tbspessoatipo from '../models/pessoa/Tbspessoatipo';
-import Tblpessoa from '../models/pessoa/Tblpessoa';
-import Tblemail from '../models/pessoa/Tblemail'
-import Tblpessoamidia from '../models/pessoa/Tblpessoamidia';
+import Pessoatpo from '../models/pessoa/Pessoatpo';
+import Pessoa from '../models/pessoa/Pessoa';
+import Foto from '../models/pessoa/Foto';
+import Email from '../models/pessoa/Email'
+import Midia from '../models/pessoa/Midia';
+import Midiatpo from '../models/pessoa/Midiatpo';
 //user
 import User from '../models/user/User';
-import Userfoto from '../models/user/Userfoto';
-import Usermidia from '../models/user/Usermidia';
 import Usertype from '../models/user/Usertype';
 
 
 const models = [
-  Tbspessoatipo,
-  Tblpessoa,
-  Tblemail,
-  Tblpessoamidia,
+  Midiatpo,
+  Pessoatpo,
+  Pessoa,
+  Foto,
+  Email,
+  Midia,
   Tbscontinente,
   Tbspais,
   Tbsbruf,
@@ -55,10 +55,7 @@ const models = [
   Tbsflat,
   Tbsisssubitem,
   Tbsissdnac,
-  Tbstypemidia,
   User,
-  Userfoto,
-  Usermidia,
   Usertype
 ];
 

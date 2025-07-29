@@ -1,9 +1,9 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Tblemail extends Model {
+export default class Email extends Model {
   static init(sequelize) {
     super.init({
-      tblpessoaid: {
+      pessoaid: {
         type: Sequelize.INTEGER,
         defaultValue: 0,
       },
@@ -26,15 +26,15 @@ export default class Tblemail extends Model {
     }, {
       sequelize,
       underscored: false,
-      tableName: 'tblemails',
+      tableName: 'emails',
     });
 
     return this;
   }
 
     static associate(models) {
-    this.belongsTo(models.Tblpessoa), {
-      foreignKey: 'tblpessoaid',
+    this.belongsTo(models.Pessoa), {
+      foreignKey: 'pessoaid',
       as: 'pessoa'
     };
   }

@@ -4,26 +4,28 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('userfotos', {
+    await queryInterface.createTable('midias', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      originalname: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      filename: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      userid: {
+      pessoaid: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
-          model: 'users',
+          model: 'pessoas',
+          key: 'id',
+        },
+        onDelete: "SET NULL",
+        onUpdate: "CASCADE",
+      },
+      midiatpoid: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'midiatpos',
           key: 'id',
         },
         onDelete: "SET NULL",
@@ -39,10 +41,25 @@ module.exports = {
         allowNull: false,
         type: "TIMESTAMP",
       },
+    })
+
+    .then(() => {
+      queryInterface.addIndex('midias', ['pessoaid', 'midiatpoid'], {
+        name: 'idx_midias_pessoaid_midiatpoid',
+        unique: true,
+      });
+    });
+    await queryInterface.addIndex('midias', ['pessoaid'], {
+      name: 'idx_midias_pessoaid',
+      unique: false,
+    });
+    await queryInterface.addIndex('midias', ['midiatpoid'], {
+      name: 'idx_midias_midiatpoid',
+      unique: false,
     });
   },
 
   async down (queryInterface/*, Sequelize*/) {
-    await queryInterface.dropTable('userfotos');
+    await queryInterface.dropTable('midias');
   }
 };

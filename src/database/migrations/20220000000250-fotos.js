@@ -4,40 +4,30 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('tblflats', {
+    await queryInterface.createTable('fotos', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      flatid: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: 'tbsflats',
-          key: 'id',
-        },
-        onDelete: "SET NULL",
-        onUpdate: "CASCADE",
+      originalname: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      filename: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       pessoaid: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
-          model: 'tblpessoas',
+          model: 'pessoas',
           key: 'id',
         },
         onDelete: "SET NULL",
         onUpdate: "CASCADE",
-      },
-      flatquartos: {
-        type: Sequelize.INTEGER(1),
-        allowNull: false,
-      },
-      flathospedes: {
-        type: Sequelize.INTEGER(2),
-        allowNull: false,
       },
       created_at: {
         allowNull: false,
@@ -52,7 +42,7 @@ module.exports = {
     });
   },
 
-  async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('tblflats');
+  async down (queryInterface/*, Sequelize*/) {
+    await queryInterface.dropTable('fotos');
   }
 };

@@ -4,32 +4,40 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('usertypes', {
+    await queryInterface.createTable('pessoas', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      userid: {
+      nomepessoa: {
+        type: Sequelize.STRING(200),
+        allowNull: false,
+      },
+      pessoatpoid: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
-          model: 'users',
+          model: 'pessoatpos',
           key: 'id',
         },
         onDelete: "SET NULL",
         onUpdate: "CASCADE",
       },
-      tbsusertypeid: {
-        type: Sequelize.INTEGER,
+      cpfpessoa: {
+        type: Sequelize.STRING(11),
         allowNull: true,
-        references: {
-          model: 'tbsusertypes',
-          key: 'id',
-        },
-        onDelete: "SET NULL",
-        onUpdate: "CASCADE",
+        defaultValue: null,
+      },
+      cnpjpessoa: {
+        type: Sequelize.STRING(14),
+        allowNull: true,
+        defaultValue: null,
+      },
+      nascpessoa: {
+        type: Sequelize.DATE,
+        allowNull: true,
       },
       created_at: {
         allowNull: false,
@@ -44,7 +52,7 @@ module.exports = {
     });
   },
 
-  async down (queryInterface) {
-    await queryInterface.dropTable('usertypes');
+  async down (queryInterface, Sequelize) {
+    await queryInterface.dropTable('pessoas');
   }
 };

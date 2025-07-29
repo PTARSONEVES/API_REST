@@ -4,40 +4,36 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('tblpessoas', {
+    await queryInterface.createTable('users', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      nomepessoa: {
-        type: Sequelize.STRING(200),
-        allowNull: false,
-      },
-      tbspessoatipoid: {
+      pessoaid: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
-          model: 'tbspessoatipos',
+          model: 'pessoas',
           key: 'id',
         },
         onDelete: "SET NULL",
         onUpdate: "CASCADE",
       },
-      cpfpessoa: {
-        type: Sequelize.STRING(11),
+      usertypeid: {
+        type: Sequelize.INTEGER,
         allowNull: true,
-        defaultValue: null,
+        references: {
+          model: 'usertypes',
+          key: 'id',
+        },
+        onDelete: "SET NULL",
+        onUpdate: "CASCADE",
       },
-      cnpjpessoa: {
-        type: Sequelize.STRING(14),
-        allowNull: true,
-        defaultValue: null,
-      },
-      nascpessoa: {
-        type: Sequelize.DATE,
-        allowNull: true,
+      password_hash: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       created_at: {
         allowNull: false,
@@ -49,10 +45,16 @@ module.exports = {
         allowNull: false,
         type: "TIMESTAMP",
       },
+    })
+    .then(() => {
+      queryInterface.addIndex('users', ['pessoaid', 'usertypeid'], {
+        name: 'idx_users_pessoaid_usertypeid',
+        unique: true,
+      });
     });
   },
 
-  async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('tblpessoas');
+  async down (queryInterface) {
+    await queryInterface.dropTable('users');
   }
 };

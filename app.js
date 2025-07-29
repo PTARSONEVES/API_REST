@@ -18,13 +18,12 @@ import tokenRoutes from './src/routes/tokenRoutes';
 import homeRoutes from './src/routes/homeRoutes';
 
 // Pessoa
-import tblpessoaRoutes from './src/routes/pessoa/tblpessoaRoutes';
-import tbspessoatipoRoutes from './src/routes/pessoa/tbspessoatipoRoutes';
+import pessoaRoutes from './src/routes/pessoa/pessoaRoutes';
+import fotoRoutes from './src/routes/pessoa/fotoRoutes';
 
 // User
 import userRoutes from './src/routes/user/userRoutes';
 import usertypeRoutes from './src/routes/user/usertypeRoutes';
-import userfotoRoutes from './src/routes/user/userfotoRoutes';
 
 // Localização
 import tbscontinenteRoutes from './src/routes/localizacao/tbscontinenteRoutes';
@@ -88,8 +87,7 @@ class App {
 
   routes() {
     this.app.use('/', homeRoutes);
-    this.app.use('/pessoas/', tblpessoaRoutes);
-    this.app.use('/pessoatipo/', tbspessoatipoRoutes);
+    this.app.use('/pessoas/', pessoaRoutes);
     this.app.use('/users/', userRoutes);
     this.app.use('/tokens/', tokenRoutes);
     this.app.use('/usertypes/', usertypeRoutes);
@@ -105,7 +103,7 @@ class App {
     this.app.use('/cnae/c/classe/', tbsclassecnaeRoutes);
     this.app.use('/cnae/subclasse/', tbssubclassecnaeRoutes);
     this.app.use('/paises/', tbspaisRoutes);
-    this.app.use('/fotos/', userfotoRoutes);
+    this.app.use('/fotos/', fotoRoutes);
     this.app.use('/municipios/', tbsbrmunicipioRoutes);
     this.app.use('/tbsflats/', tbsflatRoutes);
   }

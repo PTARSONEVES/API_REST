@@ -7,23 +7,23 @@ const { fakerPT_BR: faker } = require("@faker-js/faker");
 module.exports = {
   async up (queryInterface/*, Sequelize*/) {
     await queryInterface.bulkInsert(
-      "tblemails", [
+      "emails", [
         {
-          tblpessoaid: 1,
+          pessoaid: 1,
           email: "ptarsoneves@gmail.com",
           confirmed: "1",
         },
         {
-          tblpessoaid: 2,
+          pessoaid: 2,
           email: "salete.taraujo@gmail.com",
           confirmed: "1",
         },
     ]);
     for(let i = 0; i < 10; i++){
       await queryInterface.bulkInsert(
-        "tblemails", [
+        "emails", [
           {
-            tblpessoaid: i+2,
+            pessoaid: i+2,
             email: faker.internet.email(),
             confirmed: "0",
           },
@@ -32,6 +32,6 @@ module.exports = {
   },
 
   async down (queryInterface/*, Sequelize*/) {
-    await queryInterface.bulkDelete('tblemails', null, {});
+    await queryInterface.bulkDelete('emails', null, {});
   }
 };

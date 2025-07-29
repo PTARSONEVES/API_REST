@@ -7,14 +7,14 @@ module.exports = {
   async up (queryInterface/*, Sequelize*/) {
     for(let i = 1; i < 13; i++) {
       await queryInterface.bulkInsert(
-        "tblpessoamidias", [
+        "midias", [
           {
-            tblpessoaid: 1,
-            tbstypemidiaid: i,
+            pessoaid: 1,
+            midiatpoid: i,
           },
           {
-            tblpessoaid: 2,
-            tbstypemidiaid: i,
+            pessoaid: 2,
+            midiatpoid: i,
           },
       ]);
     }
@@ -27,10 +27,10 @@ module.exports = {
         for(let j = 1; j < midias + 1; j++) {
           // eslint-disable-next-line no-await-in-loop
           await queryInterface.bulkInsert(
-            "tblpessoamidias", [
+            "midias", [
               {
-                tblpessoaid: i,
-                tbstypemidiaid: j,
+                pessoaid: i,
+                midiatpoid: j,
               },
           ]);
         }
@@ -39,6 +39,6 @@ module.exports = {
   },
 
   async down (queryInterface/*, Sequelize*/) {
-    await queryInterface.bulkDelete('tblpessoamidias', null, {});
+    await queryInterface.bulkDelete('midias', null, {});
   }
 };
