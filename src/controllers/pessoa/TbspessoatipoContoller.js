@@ -3,8 +3,6 @@ import Tblpessoa from "../../models/pessoa/Tblpessoa";
 import Tblemail from "../../models/pessoa/Tblemail";
 import Tblpessoamidia from "../../models/pessoa/Tblpessoamidia";
 import Tbstypemidia from "../../models/referencias/Tbstypemidia";
-import { consulta } from "../../database/repository/pessoas/tbspeessoatipo";
-import { Association } from "sequelize";
 
 class TbspessoatipoController {
 
@@ -13,12 +11,6 @@ class TbspessoatipoController {
   async index(req, res) {
     try {
       const tipos = await Tbspessoatipo.findAll({
-//      const tipos = await Tbspessoatipo.sequelize.query(consulta(),{
-//        nest: true,
-//        raw: true,
-//        mapToModel: true,
-//        model: Tbspessoatipo,
-//        type: Tbspessoatipo.sequelize.QueryTypes.SELECT,
         attributes: ['id', 'tipopessoa'],
         order: [['id', 'ASC']],
         include: [{
@@ -32,13 +24,11 @@ class TbspessoatipoController {
               attributes: ['id', 'tblpessoaid', 'tbstypemidiaid'],
               include: [{
                 model: Tbstypemidia,
-                as: 'Tbstypemidium',
                 attributes: ['id', 'namemidia'],
               }],
             },
             {
               model: Tblemail,
-              as: 'Tblemails',
               attributes: ['id', 'email','confirmed'],
             }
           ],

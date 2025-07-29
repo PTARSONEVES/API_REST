@@ -26,6 +26,7 @@ export default class Tblemail extends Model {
     }, {
       sequelize,
       underscored: false,
+      tableName: 'tblemails',
     });
 
     return this;

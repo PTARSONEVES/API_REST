@@ -5,7 +5,7 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface/*, Sequelize*/) {
-    for(let i = 1; i < 7; i++) {
+    for(let i = 1; i < 13; i++) {
       await queryInterface.bulkInsert(
         "tblpessoamidias", [
           {
@@ -19,11 +19,11 @@ module.exports = {
       ]);
     }
     for(let i = 3; i < 13; i++) {
-      const midias = Math.ceil(Math.random()*6);
+      const midias = Math.ceil(Math.random()*12);
       if(midias === 0) {
         continue;
       } else {
-        if(midias === 7) {midias=6;}
+        if(midias === 13) {midias=12;}
         for(let j = 1; j < midias + 1; j++) {
           // eslint-disable-next-line no-await-in-loop
           await queryInterface.bulkInsert(

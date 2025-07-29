@@ -10,6 +10,7 @@ export default class Tbspessoatipo extends Model {
     }, {
       sequelize,
       underscored: false,
+      tableName: 'tbspessoatipos',
     });
 
     return this;

@@ -45,6 +45,7 @@ export default class Tblpessoa extends Model {
     {
       sequelize,
       underscored: false,
+      tableName: 'tblpessoas',
     });
 
     return this;

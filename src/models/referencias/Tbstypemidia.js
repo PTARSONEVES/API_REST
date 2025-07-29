@@ -15,6 +15,8 @@ export default class Tbstypemidia extends Model {
       },
     }, {
       sequelize,
+      underscored: false,
+      tableName: 'tbstypemidias',
     });
   }
 

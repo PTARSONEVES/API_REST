@@ -17,6 +17,7 @@ export default class Tblpessoamidia extends Model {
       {
         sequelize,
         underscored: false,
+        tableName: 'tblpessoamidias',
       },
     );
 
