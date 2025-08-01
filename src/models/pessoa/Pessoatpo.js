@@ -15,12 +15,9 @@ export default class Pessoatpo extends Model {
 
     return this;
   }
-/*
+
   static associate(models) {
-    this.hasMany(models.Pessoa, {
-      foreignKey: 'pessoatpoid'
-    });
+    this.hasMany(models.Pessoa, { foreignKey: 'pessoatpoid', sourceKey: 'id', });
   }
-*/
 }
 

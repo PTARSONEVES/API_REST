@@ -4,39 +4,61 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('tbsflats', {
+    await queryInterface.createTable('reservas', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      flatnome: {
-        type: Sequelize.STRING(5),
-        allowNull: false,
-        unique: true,
-      },
-      flatbloco: {
-        type: Sequelize.STRING(1),
-        allowNull: false,
-      },
-      flatpiso: {
-        type: Sequelize.STRING(1),
-        allowNull: false,
-      },
-      flatnum: {
-        type: Sequelize.STRING(2),
-        allowNull: false,
-      },
-      tbstipoflatid: {
+      pessoaid: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
-          model: 'tbstipoflats',
+          model: 'pessoas',
           key: 'id',
         },
         onDelete: "SET NULL",
         onUpdate: "CASCADE",
+      },
+      checkin: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      checkout: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      numflats: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      numhospedes: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      vlrreserva: {
+        type: Sequelize.DECIMAL(20,2),
+        allowNull: false,
+      },
+      vlrpago: {
+        type: Sequelize.DECIMAL(20,2),
+        allowNull: false,
+        defaultValue: 0.00,
+      },
+      sitreservaid: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'sitreservas',
+          key: 'id',
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      },
+      observacao: {
+        type: Sequelize.TEXT,
+        allowNull: true,
       },
       created_at: {
         allowNull: false,
@@ -52,6 +74,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('tbsflats');
+    await queryInterface.dropTable('reservas');
   }
 };

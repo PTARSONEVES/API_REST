@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Tbstipoflat extends Model {
+export default class Flattpo extends Model {
   static init(sequelize) {
     super.init({
       areaflat: {
@@ -40,6 +40,14 @@ export default class Tbstipoflat extends Model {
       },
     }, {
       sequelize,
+      underscored: false,
+      tableName: 'flattpos',
     });
+
+    return this;
   }
+  static associate(models) {
+    this.hasMany(models.Flat, { foreignKey: { name: 'flattpoid', allowNull: true } });
+  }
+
 }

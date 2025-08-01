@@ -4,18 +4,18 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('tblflats', {
+    await queryInterface.createTable('hospedes', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      flatid: {
+      reservaid: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
-          model: 'tbsflats',
+          model: 'reservas',
           key: 'id',
         },
         onDelete: "SET NULL",
@@ -31,14 +31,6 @@ module.exports = {
         onDelete: "SET NULL",
         onUpdate: "CASCADE",
       },
-      flatquartos: {
-        type: Sequelize.INTEGER(1),
-        allowNull: false,
-      },
-      flathospedes: {
-        type: Sequelize.INTEGER(2),
-        allowNull: false,
-      },
       created_at: {
         allowNull: false,
         defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
@@ -49,10 +41,16 @@ module.exports = {
         allowNull: false,
         type: "TIMESTAMP",
       },
+    })
+    .then(() => {
+      return queryInterface.addIndex('hospedes', ['reservaid', 'pessoaid'], {
+        unique: true,
+        name: 'unique_hospedes_reserva_pessoa'
+      });
     });
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('tblflats');
+    await queryInterface.dropTable('hospedes');
   }
 };

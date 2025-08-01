@@ -52,23 +52,11 @@ export default class Pessoa extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Pessoatpo, {
-      foreignKey: 'pessoatpoid',
-    });
-    models.Pessoatpo.hasMany(this, {
-      foreignKey: 'pessoatpoid',
-      sourceKey: 'id',
-    });
-    this.hasMany(models.Email), {
-      foreignKey: 'pessoaid',
-    };
-    this.hasMany(models.Midia, {
-      foreignKey: ['pessoaid','midiatpoid'],
-      sourceKey: 'id',
-    });
-    this.hasMany(models.User), {
-      foreignKey: 'pessoaid',
-    };
+    this.belongsTo(models.Pessoatpo, { foreignKey: 'pessoatpoid', });
+    this.hasMany(models.Email), { foreignKey: 'pessoaid', };
+    this.hasMany(models.Midia, { foreignKey: ['pessoaid','midiatpoid'], sourceKey: 'id', });
+    this.hasMany(models.User), { foreignKey: 'pessoaid', };
+    this.hasMany(models.Reserva), { foreignKey: 'pessoaid', };
   }
 
 }

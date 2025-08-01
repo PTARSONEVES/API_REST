@@ -1,16 +1,15 @@
 import { Router } from 'express';
-import TbsflatController from '../../controllers/flats/TbsflatController';
+import ReservaController from '../../controllers/reservas/ReservaController';
 
-//import loginRequired from '../middlewares/loginRequired';
+//import loginRequired from '../../middlewares/loginRequired';
 
 const router = new Router();
 
 // Não deve existir
-router.get('/', TbsflatController.index);
+router.get('/', ReservaController.index);
 
 //router.post('/', TbscontinenteController.store);
 //router.put('/:id', loginRequired, TbscontinenteController.update);
 //router.delete('/:id', loginRequired, TbscontinenteController.delete);
-
 
 export default router;

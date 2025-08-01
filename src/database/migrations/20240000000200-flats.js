@@ -4,41 +4,49 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('tbstipoflats', {
+    await queryInterface.createTable('flats', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      areaflat: {
-        type: Sequelize.FLOAT(10,4),
+      flatnome: {
+        type: Sequelize.STRING(5),
         allowNull: false,
         unique: true,
       },
-      quartosflat: {
-        type: Sequelize.INTEGER(2),
+      flatbloco: {
+        type: Sequelize.STRING(1),
         allowNull: false,
       },
-      salasflat: {
-        type: Sequelize.INTEGER(2),
+      flatpiso: {
+        type: Sequelize.STRING(1),
         allowNull: false,
       },
-      varandasflat: {
-        type: Sequelize.INTEGER(2),
+      flatnum: {
+        type: Sequelize.STRING(2),
         allowNull: false,
       },
-      wcsflat: {
-        type: Sequelize.INTEGER(2),
-        allowNull: false,
+      flattpoid: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'flattpos',
+          key: 'id',
+        },
+        onDelete: "SET NULL",
+        onUpdate: "CASCADE",
       },
-      cozinhasflat: {
-        type: Sequelize.INTEGER(2),
-        allowNull: false,
-      },
-      garagensflat: {
-        type: Sequelize.INTEGER(2),
-        allowNull: false,
+      pessoaid: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'pessoas',
+          key: 'id',
+        },
+        onDelete: "SET NULL",
+        onUpdate: "CASCADE",
       },
       created_at: {
         allowNull: false,
@@ -54,6 +62,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('tbstipoflatss');
+    await queryInterface.dropTable('flats');
   }
 };

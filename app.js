@@ -46,8 +46,8 @@ import tbssubclassecnaeRoutes from './src/routes/cnae/tbssubclassecnaeRoutes';
 
 // Ancorar
 
-import tbsflatRoutes from './src/routes/flats/tbsflatRoutes';
-
+import flatRoutes from './src/routes/flats/flatRoutes';
+import reservaRoutes from './src/routes/reservas/reservaRoutes';
 const whiteList = [
   'http://localhost:3000',
   'http://localhost:5173',
@@ -105,7 +105,8 @@ class App {
     this.app.use('/paises/', tbspaisRoutes);
     this.app.use('/fotos/', fotoRoutes);
     this.app.use('/municipios/', tbsbrmunicipioRoutes);
-    this.app.use('/tbsflats/', tbsflatRoutes);
+    this.app.use('/flats/', flatRoutes);
+    this.app.use('/reservas/', reservaRoutes);
   }
 }
 

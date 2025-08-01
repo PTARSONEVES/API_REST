@@ -3,13 +3,12 @@ import Email from "../../models/pessoa/Email";
 import Pessoatpo from "../../models/pessoa/Pessoatpo";
 import Midia from "../../models/pessoa/Midia";
 import Midiatpo from "../../models/pessoa/Midiatpo";
-import User from "../../models/user/User";
-import Usertype from "../../models/user/Usertype";
 import Reserva from "../../models/reservas/Reserva";
+import Sitreserva from "../../models/reservas/Sitreserva";
 import Flatloc from "../../models/flats/Flatloc";
 import Flat from "../../models/flats/Flat";
 
-class PessoaController {
+class ReservaController{
 
 
   // Método Index
@@ -17,51 +16,33 @@ class PessoaController {
   async index(req, res) {
     try {
 
-      const pessoas = await Pessoa.findAll({
-        attributes: ['id', 'nomepessoa','pessoatpoid', 'cpfpessoa', 'cnpjpessoa', 'nascpessoa'],
-        order: [['id', 'ASC']],
+      const reservas = await Reserva.findAll({
+        attributes: ['id', 'pessoaid', 'checkin', 'checkout', 'numflats', 'numhospedes', 'vlrreserva', 'vlrpago', 'sitreservaid', 'observacao'],
         include: [
           {
-            attributes: ['id', 'email', 'confirmed'],
-            model: Email,
-            as: 'Emails',
+            model: Sitreserva,
+            attributes: ['id','nomstatus'],
           },
           {
-            attributes: ['id', 'tipopessoa'],
-            model: Pessoatpo,
-          },
-          {
-            model: Midia,
-            attributes: ['id', 'pessoaid', 'midiatpoid'],
+            model: Flatloc,
+            attributes: ['reservaid','flatid'],
             include: [{
-              model: Midiatpo,
-              attributes: ['id', 'namemidia']
+              model: Flat,
+              attributes: ['flatnome', 'flatbloco', 'flatpiso', 'flatnum'],
             }]
           },
           {
-            model: User,
-            attributes: ['id', 'pessoaid', 'usertypeid'],
+            model: Pessoa,
+            attributes: ['id','nomepessoa','cpfpessoa','cnpjpessoa'],
             include: [{
-              model: Usertype,
-              attributes: ['id', 'tipouser']
-            }],
-          },
-          {
-            model: Reserva,
-            attributes: ['id', 'pessoaid', 'checkin', 'checkout', 'numflats', 'numhospedes', 'vlrreserva', 'vlrpago', 'sitreservaid', 'observacao'],
-            include: [{
-              model: Flatloc,
-              attributes: ['reservaid','flatid'],
-              include: [{
-                model: Flat,
-                attributes: ['flatnome', 'flatbloco', 'flatpiso', 'flatnum'],
-              }]
-            }],
+              model: Email,
+              attributes: ['email', 'confirmed'],
+            }]
           }
         ],
       });
 
-      return res.json(pessoas);
+      return res.json(reservas);
     } catch(e) {
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
@@ -173,4 +154,4 @@ class PessoaController {
 */
 }
 
-export default new PessoaController();
+export default new ReservaController();

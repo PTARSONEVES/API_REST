@@ -27,9 +27,8 @@ module.exports = {
           password_hash: bcryptjs.hashSync('detarso', 10),
         },
     ]);
-    console.log("Createds Paulo and Sal");
     for(let i = 3; i < 13; i++){
-      const tpuser = Math.ceil(Math.random()*10);
+      let tpuser = Math.ceil(Math.random()*10);
       if(tpuser === 0) {
         continue;
       } else {
