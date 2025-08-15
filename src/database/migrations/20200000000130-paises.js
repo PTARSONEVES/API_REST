@@ -4,52 +4,40 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('tbsbrmunicipios', {
+    await queryInterface.createTable('paises', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      ibgefull: {
-        type: Sequelize.STRING(7),
-        allowNull: false,
-      },
-      ibgeshort: {
-        type: Sequelize.STRING(5),
-        allowNull: false,
-      },
-      ufid: {
+      continenteid: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'tbsbrufs',
+          model: 'continentes',
           key: 'id',
         },
         onDelete: "CASCADE",
       },
-      cityname: {
-        type: Sequelize.STRING(80),
+      paiscod: {
+        type: Sequelize.STRING(4),
         allowNull: false,
       },
-      citylaw: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-      },
-      datelaw: {
-        type: Sequelize.DATE,
-        allowNull: true,
-      },
-      dateinstall: {
-        type: Sequelize.DATE,
-        allowNull: true,
-      },
-      citynamesem: {
-        type: Sequelize.STRING(80),
+      paisname: {
+        type: Sequelize.STRING(150),
         allowNull: false,
       },
-      cityddd: {
-        type: Sequelize.STRING(2),
+      paispopname: {
+        type: Sequelize.STRING(150),
+        allowNull: false,
+      },
+      paispopsem: {
+        type: Sequelize.STRING(150),
+        allowNull: false,
+      },
+      paisddi: {
+        type: Sequelize.STRING(4),
         allowNull: false,
       },
       created_at: {
@@ -66,6 +54,6 @@ module.exports = {
   },
 
   async down (queryInterface/*, Sequelize*/) {
-    await queryInterface.dropTable('tbsbrmunicipios');
+    await queryInterface.dropTable('paises');
   }
 };

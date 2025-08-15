@@ -4,7 +4,7 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('tbsbrufs', {
+    await queryInterface.createTable('ufs', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -15,7 +15,16 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'tbspaises',
+          model: 'paises',
+          key: 'id',
+        },
+        onDelete: "CASCADE",
+      },
+      regiaoid: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'regioes',
           key: 'id',
         },
         onDelete: "CASCADE",
@@ -29,11 +38,11 @@ module.exports = {
         allowNull: false,
       },
       ufname: {
-        type: Sequelize.STRING(40),
+        type: Sequelize.STRING(150),
         allowNull: false,
       },
       ufnamesem: {
-        type: Sequelize.STRING(40),
+        type: Sequelize.STRING(150),
         allowNull: false,
       },
       created_at: {
@@ -50,6 +59,6 @@ module.exports = {
   },
 
   async down (queryInterface/*, Sequelize*/) {
-    await queryInterface.dropTable('tbsbrufs');
+    await queryInterface.dropTable('ufs');
   }
 };

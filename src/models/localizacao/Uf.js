@@ -1,12 +1,16 @@
 import Sequelize, {Model} from "sequelize";
 
-export default class Tbsbruf extends Model {
+export default class Uf extends Model {
   static init (sequelize) {
     super.init(
       {
         paisid: {
           type: Sequelize.INTEGER,
-          defaultValue: 103,
+          allowNull: false,
+        },
+        regiaoid: {
+          type: Sequelize.INTEGER,
+          defaultValue: '',
         },
         coduf: {
           type: Sequelize.INTEGER,
@@ -45,12 +49,16 @@ export default class Tbsbruf extends Model {
       },
       {
         sequelize,
+        underscored: false,
+        tableName: 'ufs',
       }
     );
   }
 
   static associate(models) {
-    this.belongsTo(models.Tbspais, { foreignKey: 'paisid'});
+    this.belongsTo(models.Pais, { foreignKey: 'paisid'});
+    this.belongsTo(models.Regiao, { foreignKey: 'regiaoid'});
+    this.hasMany(models.Uf, {foreignKey: 'ufid'});
   }
 
 }

@@ -26,10 +26,11 @@ import userRoutes from './src/routes/user/userRoutes';
 import usertypeRoutes from './src/routes/user/usertypeRoutes';
 
 // Localização
-import tbscontinenteRoutes from './src/routes/localizacao/tbscontinenteRoutes';
-import tbsbrufRoutes from './src/routes/localizacao/tbsbrufRoutes';
-import tbspaisRoutes from './src/routes/localizacao/tbspaisRoutes';
-import tbsbrmunicipioRoutes from './src/routes/localizacao/tbsbrmunicipioRoutes';
+import continenteRoutes from './src/routes/localizacao/continenteRoutes';
+import paisRoutes from './src/routes/localizacao/paisRoutes';
+import regiaoRoutes from './src/routes/localizacao/regiaoRoutes';
+import ufRoutes from './src/routes/localizacao/ufRoutes';
+import municipioRoutes from './src/routes/localizacao/municipioRoutes';
 
 // ISSQN
 import tbsissitemRoutes from './src/routes/issqn/tbsissitemRoutes';
@@ -91,8 +92,11 @@ class App {
     this.app.use('/users/', userRoutes);
     this.app.use('/tokens/', tokenRoutes);
     this.app.use('/usertypes/', usertypeRoutes);
-    this.app.use('/continentes/', tbscontinenteRoutes);
-    this.app.use('/ufs/', tbsbrufRoutes);
+    this.app.use('/continentes/', continenteRoutes);
+    this.app.use('/paises/', paisRoutes);
+    this.app.use('/regioes/', regiaoRoutes);
+    this.app.use('/ufs/', ufRoutes);
+    this.app.use('/municipios/', municipioRoutes);
     this.app.use('/iss/', tbsissitemRoutes);
     this.app.use('/iss/subitem/', tbsisssubitemRoutes);
     this.app.use('/iss/subitem/dnac/', tbsissdnacRoutes);
@@ -102,9 +106,7 @@ class App {
     this.app.use('/cnae/grupo/', tbsgrupocnaeRoutes);
     this.app.use('/cnae/c/classe/', tbsclassecnaeRoutes);
     this.app.use('/cnae/subclasse/', tbssubclassecnaeRoutes);
-    this.app.use('/paises/', tbspaisRoutes);
     this.app.use('/fotos/', fotoRoutes);
-    this.app.use('/municipios/', tbsbrmunicipioRoutes);
     this.app.use('/flats/', flatRoutes);
     this.app.use('/reservas/', reservaRoutes);
   }

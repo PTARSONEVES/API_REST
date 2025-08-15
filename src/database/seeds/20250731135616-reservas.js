@@ -4,22 +4,23 @@ const { fakerPT_BR: faker } = require("@faker-js/faker");
 
 function convData(dta) {
   let dtconv = dta.toString();
+  console.log('dtconv= ',dtconv);
   let ms = dtconv.slice(4,7);
   let ano = dtconv.slice(11,15);
   let dia = dtconv.slice(8,10);
   let mes='';
   if(ms === 'Jan'){mes='01'}
-  if(ms === 'Feb'){mes='01'}
-  if(ms === 'Mar'){mes='01'}
-  if(ms === 'Apr'){mes='01'}
-  if(ms === 'May'){mes='01'}
-  if(ms === 'Jun'){mes='01'}
-  if(ms === 'Jul'){mes='01'}
-  if(ms === 'Ago'){mes='01'}
-  if(ms === 'Sep'){mes='01'}
-  if(ms === 'Oct'){mes='01'}
-  if(ms === 'Nov'){mes='01'}
-  if(ms === 'Dec'){mes='01'}
+  if(ms === 'Feb'){mes='02'}
+  if(ms === 'Mar'){mes='03'}
+  if(ms === 'Apr'){mes='04'}
+  if(ms === 'May'){mes='05'}
+  if(ms === 'Jun'){mes='06'}
+  if(ms === 'Jul'){mes='07'}
+  if(ms === 'Aug'){mes='08'}
+  if(ms === 'Sep'){mes='09'}
+  if(ms === 'Oct'){mes='10'}
+  if(ms === 'Nov'){mes='11'}
+  if(ms === 'Dec'){mes='12'}
   dtconv = ano+'-'+mes+'-'+dia;
   return dtconv;
 }

@@ -4,40 +4,28 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('tbspaises', {
+    await queryInterface.createTable('regioes', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      continenteid: {
+      paisid: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'tbscontinentes',
+          model: 'paises',
           key: 'id',
         },
         onDelete: "CASCADE",
       },
-      paiscod: {
-        type: Sequelize.STRING(4),
-        allowNull: false,
-      },
-      paisname: {
+      regiaoname: {
         type: Sequelize.STRING(150),
         allowNull: false,
       },
-      paispopname: {
+      regiaonamesem: {
         type: Sequelize.STRING(150),
-        allowNull: false,
-      },
-      paispopsem: {
-        type: Sequelize.STRING(150),
-        allowNull: false,
-      },
-      paisddi: {
-        type: Sequelize.STRING(4),
         allowNull: false,
       },
       created_at: {
@@ -54,6 +42,6 @@ module.exports = {
   },
 
   async down (queryInterface/*, Sequelize*/) {
-    await queryInterface.dropTable('tbspaises');
+    await queryInterface.dropTable('regioes');
   }
 };

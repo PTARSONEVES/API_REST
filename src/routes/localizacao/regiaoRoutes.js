@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import TbsbrmunicipioController from '../../controllers/localizacao/TbsbrmunicipioController';
+import RegiaoController from '../../controllers/localizacao/RegiaoController';
 
 //import loginRequired from '../middlewares/loginRequired';
 
 const router = new Router();
 
 // Não deve existir
-router.get('/:id/:ufid', TbsbrmunicipioController.index);
+router.get('/', RegiaoController.index);
 
 //router.post('/', TbscontinenteController.store);
 //router.put('/:id', loginRequired, TbscontinenteController.update);

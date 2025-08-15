@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Tbspais extends Model {
+export default class Pais extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -61,13 +61,16 @@ export default class Tbspais extends Model {
       },
       {
         sequelize,
-        tableName: "tbspaises",
+        underscored: false,
+        tableName: "paises",
       }
     );
   }
 
   static associate(models) {
-    this.belongsTo(models.Tbscontinente, { foreignKey: 'continenteid'});
+    this.belongsTo(models.Continente, { foreignKey: 'continenteid'});
+    this.hasMany(models.Regiao, {foreignKey: 'paisid'});
+    this.hasMany(models.Uf, {foreignKey: 'paisid'});
   }
 
 }

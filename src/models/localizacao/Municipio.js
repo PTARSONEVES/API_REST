@@ -1,6 +1,6 @@
 import Sequelize, {Model} from "sequelize";
 
-export default class Tbsbrmunicipio extends Model {
+export default class Municipio extends Model {
   static init (sequelize) {
     super.init(
       {
@@ -76,7 +76,7 @@ export default class Tbsbrmunicipio extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Tbsbruf, { foreignKey: 'ufid'});
+    this.belongsTo(models.Uf, { foreignKey: 'ufid'});
   }
 
 

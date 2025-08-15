@@ -1,13 +1,13 @@
-import Tbspais from "../../models/localizacao/Tbspais";
+import Regiao from "../../models/localizacao/Regiao";
 
-class TbspaisController {
+class RegiaoController {
 
   // Método Index
 
   async index(req, res) {
     try {
-      const paises = await Tbspais.findAll();
-      return res.json(paises);
+      const regioes = await Regiao.findAll();
+      return res.json(regioes);
     } catch {
       return res.json(null);
     }
@@ -17,14 +17,14 @@ class TbspaisController {
 
   async show(req, res) {
     try {
-      const pais = await Tbspais.findByPk(req.params.id);
-      return res.json(pais);
+      const regioes = await Regiao.findByPk(req.params.id);
+      return res.json(regioes);
     } catch {
       return res.json(null);
     }
   }
 
-
+/*
   // Método Store
 
   async store(req, res) {
@@ -96,7 +96,7 @@ class TbspaisController {
     }
   }
 
-
+*/
 }
 
-export default new TbspaisController();
+export default new RegiaoController();

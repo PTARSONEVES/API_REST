@@ -18,10 +18,11 @@ import Tbsissitem from '../models/issqn/Tbsissitem';
 import Tbsisssubitem from '../models/issqn/Tbsisssubitem';
 import Tbsissdnac from '../models/issqn/Tbsissdnac';
 // localizacao
-import Tbscontinente from '../models/localizacao/Tbscontinente';
-import Tbspais from '../models/localizacao/Tbspais';
-import Tbsbruf from '../models/localizacao/Tbsbruf';
-import Tbsbrmunicipio from '../models/localizacao/Tbsbrmunicipio';
+import Continente from '../models/localizacao/Continente';
+import Pais from '../models/localizacao/Pais';
+import Regiao from '../models/localizacao/Regiao';
+import Uf from '../models/localizacao/Uf';
+import Municipio from '../models/localizacao/Municipio';
 // pessoa
 import Pessoatpo from '../models/pessoa/Pessoatpo';
 import Pessoa from '../models/pessoa/Pessoa';
@@ -51,10 +52,11 @@ const models = [
   Tbsissitem,
   Tbsisssubitem,
   Tbsissdnac,
-  Tbscontinente,
-  Tbspais,
-  Tbsbruf,
-  Tbsbrmunicipio,
+  Continente,
+  Pais,
+  Regiao,
+  Uf,
+  Municipio,
   Midiatpo,
   Pessoatpo,
   Pessoa,

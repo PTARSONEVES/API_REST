@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Tbscontinente extends Model {
+export default class Continente extends Model {
   static init(sequelize) {
     super.init({
       namecontinente: {
@@ -10,6 +10,8 @@ export default class Tbscontinente extends Model {
       },
     }, {
       sequelize,
+      underscored: false,
+      tableName: 'continentes',
     });
   }
 }

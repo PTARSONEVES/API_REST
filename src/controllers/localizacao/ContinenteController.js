@@ -1,12 +1,12 @@
-import Tbscontinente from "../../models/localizacao/Tbscontinente";
+import Continente from "../../models/localizacao/Continente";
 
-class TbscontinenteController {
+class ContinenteController {
 
   // Método Index
 
   async index(req, res) {
     try {
-      const continentes = await Tbscontinente.findAll();
+      const continentes = await Continente.findAll();
       return res.json(continentes);
     } catch {
       return res.json(null);
@@ -17,7 +17,7 @@ class TbscontinenteController {
 
   async show(req, res) {
     try {
-      const continente = await Tbscontinente.findByPk(req.params.id);
+      const continente = await Continente.findByPk(req.params.id);
       return res.json(continente);
     } catch {
       return res.json(null);
@@ -99,4 +99,4 @@ class TbscontinenteController {
 
 }
 
-export default new TbscontinenteController();
+export default new ContinenteController();
