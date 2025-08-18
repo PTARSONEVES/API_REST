@@ -28,7 +28,6 @@ export default class Regiao extends Model {
 
   static associate(models) {
     this.belongsTo(models.Pais, { foreignKey: 'paisid'});
-    this.hasMany(models.Uf, {foreignKey: 'regiaoid'});
   }
 
 }

@@ -69,8 +69,7 @@ export default class Pais extends Model {
 
   static associate(models) {
     this.belongsTo(models.Continente, { foreignKey: 'continenteid'});
-    this.hasMany(models.Regiao, {foreignKey: 'paisid'});
-    this.hasMany(models.Uf, {foreignKey: 'paisid'});
+    models.Continente.hasMany(models.Pais, { foreignKey: 'continenteid' });
   }
 
 }

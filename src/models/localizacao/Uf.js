@@ -58,7 +58,8 @@ export default class Uf extends Model {
   static associate(models) {
     this.belongsTo(models.Pais, { foreignKey: 'paisid'});
     this.belongsTo(models.Regiao, { foreignKey: 'regiaoid'});
-    this.hasMany(models.Uf, {foreignKey: 'ufid'});
+    models.Pais.hasMany(models.Uf, {foreignKey: 'paisid'});
+    models.Regiao.hasMany(models.Uf, {foreignKey: 'regiaoid'});
   }
 
 }
